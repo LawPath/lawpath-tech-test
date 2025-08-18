@@ -224,10 +224,10 @@
     <h2>Primary Deliverable: Working Implementation</h2>
 
     <h3>What You're Creating</h3>
-    <p>A fully functional recommendation system with complete infrastructure setup, Lambda functions, and a <code>test-flow.sh</code> script that demonstrates the entire system working end-to-end.</p>
+    <p>A fully functional recommendation system with complete infrastructure setup, Lambda functions, and automated tests that demonstrate the entire system working end-to-end.</p>
 
-    <h3>Key Validation Script</h3>
-    <p>Your <code>test-flow.sh</code> must start all Docker containers, deploy infrastructure to LocalStack, load sample data, test event ingestion, query recommendations, and validate all components are working correctly.</p>
+    <h3>System Validation</h3>
+    <p>Your solution must be easily runnable with clear instructions for starting Docker containers, deploying infrastructure to LocalStack, loading sample data, and testing both event ingestion and recommendation endpoints.</p>
 
     <div class="page-break"></div>
 
@@ -369,7 +369,7 @@
         <li><strong>Docker Compose:</strong> Complete configuration for LocalStack and Vector DB</li>
         <li><strong>Lambda Functions:</strong> Event ingestion, workers (DynamoDB, S3, Vector), and recommendation service</li>
         <li><strong>Infrastructure Code:</strong> Serverless Framework or Terraform configuration</li>
-        <li><strong>test-flow.sh:</strong> Automated script that starts the system and validates all components</li>
+        <li><strong>Automated Tests:</strong> Scripts or test suites that validate all components</li>
         <li><strong>Data Loader:</strong> Script to load and index the sample events</li>
     </ul>
 
@@ -448,21 +448,21 @@
         </tbody>
     </table>
 
-    <h3>test-flow.sh Validation</h3>
-    <p>Your test-flow.sh script will be executed to verify the system works end-to-end. The script should complete in under 5 minutes with all Docker containers starting successfully, Lambda functions properly deployed to LocalStack, sample data loaded and indexed, and both ingestion and recommendation APIs working correctly.</p>
+    <h3>System Validation</h3>
+    <p>Your system will be validated to ensure it works end-to-end. We will verify that all Docker containers start successfully, Lambda functions properly deploy to LocalStack, sample data can be loaded and indexed, and both ingestion and recommendation APIs work correctly.</p>
 
     <div class="page-break"></div>
 
     <h2>Validation Requirements</h2>
-    <p>Your <code>test-flow.sh</code> script must demonstrate a complete working system. Running <code>./test-flow.sh</code> should:</p>
+    <p>Your system must demonstrate complete functionality. We will validate that your solution:</p>
     <ol>
-        <li>Start Docker Compose services (LocalStack, Vector DB)</li>
-        <li>Deploy all Lambda functions and infrastructure</li>
-        <li>Load sample events from sample-events.json</li>
-        <li>Test event ingestion with multiple POST requests</li>
-        <li>Verify data storage in all three layers</li>
-        <li>Query recommendations and validate responses</li>
-        <li>Display clear pass/fail results for each test</li>
+        <li>Starts Docker Compose services (LocalStack, Vector DB) successfully</li>
+        <li>Deploys all Lambda functions and infrastructure correctly</li>
+        <li>Can load sample events from sample-events.json</li>
+        <li>Handles event ingestion via POST /events endpoint</li>
+        <li>Stores data correctly in all three layers (DynamoDB, S3, Vector DB)</li>
+        <li>Returns relevant recommendations via GET /recommendations endpoint</li>
+        <li>Maintains proper error handling and logging</li>
     </ol>
 
     <p>The validation will verify that events flow through SNS to all workers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, response times meet requirements, and the system handles concurrent requests.</p>
@@ -527,7 +527,7 @@
             <tr>
                 <td><strong>Testing & Documentation</strong></td>
                 <td>60 min</td>
-                <td>test-flow.sh script, documentation, diagrams</td>
+                <td>Test scripts, documentation, diagrams</td>
             </tr>
         </tbody>
     </table>
@@ -546,7 +546,8 @@
 │   ├── vector-worker/<br>
 │   └── recommendation/<br>
 ├── scripts/<br>
-│   ├── test-flow.sh         # PRIMARY validation script<br>
+│   ├── setup.sh             # System setup script<br>
+│   ├── test.sh              # Test runner<br>
 │   └── load-data.sh         # Sample data loader<br>
 ├── docs/<br>
 │   ├── architecture.md      # System design<br>
@@ -557,10 +558,10 @@
     </div>
 
     <h3>Optional Loom Video</h3>
-    <p>You may submit a 5-minute Loom video walking through your solution, demonstrating test-flow.sh execution, explaining key architectural decisions, and showing the system handling real requests. This is optional but can help showcase your communication skills and system understanding.</p>
+    <p>You may submit a 5-minute Loom video walking through your solution, demonstrating the system running, explaining key architectural decisions, and showing how the system handles real requests. This is optional but can help showcase your communication skills and system understanding.</p>
 
     <h3>Success Metrics</h3>
-    <p>Your solution succeeds if test-flow.sh runs without errors, all Docker containers start successfully, Lambda functions deploy and execute properly, data flows through SNS to all workers, and recommendation API returns relevant results.</p>
+    <p>Your solution succeeds if all Docker containers start successfully, Lambda functions deploy and execute properly, data flows through SNS to all workers, recommendation API returns relevant results, and the system can be easily set up and tested.</p>
 
     <h2>Final Notes</h2>
     <p>We seek technical leaders who can build production-ready systems using modern cloud-native patterns. Your implementation should demonstrate clean architecture, proper error handling, and scalable design patterns.</p>
