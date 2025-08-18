@@ -274,12 +274,11 @@
     <h3>Critical Docker Requirements</h3>
     <p>Your solution must use Docker Compose with LocalStack running as a container for AWS services, a Vector DB container (Qdrant, Weaviate, or Chroma), a shared Docker network for Lambda-to-service communication, and the LAMBDA_DOCKER_NETWORK environment variable configured correctly. LocalStack must be running in Docker to properly simulate Lambda functions — the pip-installed version will not work for this assessment.</p>
 
-    <p><strong>LocalStack Setup:</strong> Refer to the official LocalStack documentation at <a href="https://docs.localstack.cloud/getting-started/" target="_blank">https://docs.localstack.cloud/getting-started/</a> for installation and configuration. You can use either:
+    <p><strong>AWS Environment Options:</strong></p>
     <ul>
-        <li><strong>Docker:</strong> Run LocalStack as a Docker container (traditional approach)</li>
-        <li><strong>LocalStack Desktop:</strong> Use the LocalStack Desktop application for easier setup and management</li>
+        <li><strong>Option 1 - LocalStack (Recommended):</strong> Refer to the official LocalStack documentation at <a href="https://docs.localstack.cloud/getting-started/" target="_blank">https://docs.localstack.cloud/getting-started/</a> for installation and configuration. You can use either Docker or the LocalStack Desktop application. Both support the localhost.localstack.cloud:4566 endpoint for better DNS resolution.</li>
+        <li><strong>Option 2 - Your AWS Account:</strong> Alternatively, you may use your own AWS account if you prefer. Ensure you stay within the free tier limits and clearly document any required AWS configuration in your README.</li>
     </ul>
-    Both approaches support the localhost.localstack.cloud:4566 endpoint for better DNS resolution and service discovery.</p>
 
     <p>The Docker networking must enable Lambda functions to communicate with both LocalStack services and the vector database. This requires careful configuration of the LAMBDA_DOCKER_NETWORK environment variable to match your compose network name, proper service discovery using container names, and appropriate port mappings for external access.</p>
 
