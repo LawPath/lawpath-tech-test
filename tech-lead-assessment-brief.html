@@ -233,7 +233,7 @@
 
     <h2>Technical Requirements</h2>
 
-    <h3>Mandatory Technology Stack</h3>
+    <h3>Required Technology Stack</h3>
     <table>
         <thead>
             <tr>
@@ -244,9 +244,9 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>Local AWS</strong></td>
-                <td>LocalStack (Docker)</td>
-                <td>Must run in Docker container, NOT pip install</td>
+                <td><strong>AWS Environment</strong></td>
+                <td>LocalStack or AWS Account</td>
+                <td>Docker preferred for LocalStack; see setup options below</td>
             </tr>
             <tr>
                 <td><strong>Infrastructure as Code</strong></td>
@@ -261,12 +261,12 @@
             <tr>
                 <td><strong>Vector Database</strong></td>
                 <td>Qdrant/Pinecone/Weaviate/Chroma</td>
-                <td>Docker container or managed service</td>
+                <td>Docker container preferred, managed service acceptable</td>
             </tr>
             <tr>
                 <td><strong>Core AWS Services</strong></td>
                 <td>API Gateway, Lambda, SNS, DynamoDB, S3</td>
-                <td>Via LocalStack container</td>
+                <td>Via LocalStack or AWS</td>
             </tr>
         </tbody>
     </table>
