@@ -265,7 +265,7 @@
             </tr>
             <tr>
                 <td><strong>Core AWS Services</strong></td>
-                <td>API Gateway, DynamoDB, S3</td>
+                <td>API Gateway, Lambda, SNS, DynamoDB, S3</td>
                 <td>Via LocalStack container</td>
             </tr>
         </tbody>
@@ -277,18 +277,39 @@
     <p>The Docker networking must enable Lambda functions to communicate with both LocalStack services and the vector database. This requires careful configuration of the LAMBDA_DOCKER_NETWORK environment variable to match your compose network name, proper service discovery using container names, and appropriate port mappings for external access.</p>
 
     <h3>Required Data Flow Architecture</h3>
-    <p>Your AI instructions must implement this core recommendation system flow:</p>
+    <p>Your AI instructions must implement this event-driven architecture:</p>
+    
+    <h4>Event Ingestion Flow:</h4>
     <ol>
-        <li><strong>API Gateway → Lambda (Event Handler):</strong> Configure POST /events endpoint using the structure from sample-events.json, with request validation schema and proper error responses</li>
-        <li><strong>Lambda validates & generates embedding:</strong> Implement input validation logic, embedding generation using Hugging Face models or embedding service, and comprehensive error handling</li>
-        <li><strong>Lambda stores data in three locations:</strong> DynamoDB for metadata and fast queries, S3 for raw event archival and compliance, Vector DB for semantic similarity search and recommendations</li>
-        <li><strong>Lambda (Recommendation Handler):</strong> Query vector database for similar events, retrieve company journey patterns, and return next-step recommendations with confidence scores</li>
+        <li><strong>API Gateway → Lambda (Event Ingestion):</strong> Validates incoming POST /events request and publishes to SNS topic immediately for asynchronous processing</li>
+        <li><strong>SNS → Multiple Worker Lambdas (Fan-out):</strong>
+            <ul>
+                <li><strong>DynamoDB Worker:</strong> Stores event metadata for fast queries</li>
+                <li><strong>S3 Worker:</strong> Archives raw events for compliance and audit</li>
+                <li><strong>Vector Index Worker:</strong> Generates embeddings and indexes in vector database</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h4>Recommendation Flow:</h4>
+    <ol>
+        <li><strong>API Gateway → Lambda (Recommendation Service):</strong> Handles GET /recommendations requests</li>
+        <li><strong>Lambda queries Vector DB:</strong> Performs similarity search to find relevant patterns</li>
+        <li><strong>Lambda returns recommendations:</strong> Analyzes similar journeys and returns next-step predictions</li>
     </ol>
     
     <h3>Required API Endpoints</h3>
     <ul>
-        <li><strong>POST /events</strong> - Ingests new business events and stores them across all three data layers</li>
-        <li><strong>GET /recommendations?user_id={id}&limit={k}</strong> - Returns top-K next actions based on similar company patterns using vector similarity search</li>
+        <li><strong>POST /events</strong> - Accepts new business events, validates them, and publishes to SNS for asynchronous processing. Returns immediately with eventId.</li>
+        <li><strong>GET /recommendations?user_id={id}&limit={k}</strong> - Queries vector database for similar patterns and returns top-K next actions with confidence scores</li>
+    </ul>
+    
+    <h3>Benefits of This Architecture</h3>
+    <ul>
+        <li><strong>Scalability:</strong> SNS fan-out allows parallel processing without blocking the API response</li>
+        <li><strong>Resilience:</strong> If one worker fails, others continue processing independently</li>
+        <li><strong>Performance:</strong> Event ingestion returns immediately; storage happens asynchronously</li>
+        <li><strong>Separation of Concerns:</strong> Each Lambda has a single responsibility</li>
     </ul>
     
     <h3>Core Recommendation Features</h3>
@@ -307,7 +328,7 @@
     <div class="page-break"></div>
 
     <h3>Infrastructure as Code Specifications</h3>
-    <p>Your Serverless Framework configuration must include Lambda function definitions, DynamoDB tables, S3 buckets, API Gateway endpoints, and IAM roles.</p>
+    <p>Your Serverless Framework configuration must include Lambda function definitions (Event Ingestion, DynamoDB Worker, S3 Worker, Vector Index Worker, Recommendation Service), SNS topics with subscriptions, DynamoDB tables, S3 buckets, API Gateway endpoints, and IAM roles.</p>
 
     <p>The LocalStack configuration must specify all required AWS services, proper endpoint configuration for local development, Lambda executor settings for Docker-based execution, and volume mounts for data persistence across restarts.</p>
 
@@ -444,11 +465,14 @@
   }
 }
 
-// Verify:
-✓ DynamoDB entry created
-✓ S3 object stored
-✓ Vector in Qdrant/Weaviate
-✓ Response: 200 with eventId</code></pre>
+// Response: 200 with eventId (immediate)
+
+// Verify (asynchronously):
+✓ SNS message published
+✓ DynamoDB Worker executed
+✓ S3 Worker executed  
+✓ Vector Index Worker executed
+✓ All data stores updated</code></pre>
 
     <h3>Test Flow B: Recommendations</h3>
     <pre><code>// GET /recommendations?user_id=user_456&limit=5
