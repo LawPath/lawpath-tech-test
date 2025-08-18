@@ -1,0 +1,1331 @@
+{
+  "events": [
+    {
+      "eventId": "evt_001",
+      "timestamp": "2024-01-01T09:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "technology",
+        "stage": "incorporation",
+        "founders": 2,
+        "jurisdiction": "NSW"
+      },
+      "description": "Registered TechStart Pty Ltd with 2 founders in NSW"
+    },
+    {
+      "eventId": "evt_002",
+      "timestamp": "2024-01-01T14:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "shareholders_agreement",
+      "metadata": {
+        "documentType": "shareholders_agreement",
+        "stage": "incorporation",
+        "industry": "technology",
+        "parties": 2,
+        "hasVesting": true
+      },
+      "description": "Created shareholders agreement with 4-year vesting"
+    },
+    {
+      "eventId": "evt_003",
+      "timestamp": "2024-01-02T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "director_id_verification",
+      "metadata": {
+        "taskType": "compliance",
+        "stage": "incorporation",
+        "industry": "technology"
+      },
+      "description": "Completed director identity verification for ASIC"
+    },
+    {
+      "eventId": "evt_004",
+      "timestamp": "2024-01-03T11:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn_gst",
+        "stage": "incorporation",
+        "industry": "technology"
+      },
+      "description": "Registered for ABN, ACN and GST"
+    },
+    {
+      "eventId": "evt_005",
+      "timestamp": "2024-01-05T09:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "bank_account_setup",
+      "metadata": {
+        "accountType": "business",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Opened business bank account"
+    },
+    {
+      "eventId": "evt_006",
+      "timestamp": "2024-01-08T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_002",
+      "eventType": "employment_contract",
+      "metadata": {
+        "documentType": "employment_contract",
+        "stage": "operations",
+        "industry": "technology",
+        "role": "software_engineer"
+      },
+      "description": "First employee contract created"
+    },
+    {
+      "eventId": "evt_007",
+      "timestamp": "2024-01-10T14:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_002",
+      "eventType": "payroll_setup",
+      "metadata": {
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Set up payroll system"
+    },
+    {
+      "eventId": "evt_008",
+      "timestamp": "2024-01-12T11:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_002",
+      "eventType": "superannuation_setup",
+      "metadata": {
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Configured superannuation for employees"
+    },
+    {
+      "eventId": "evt_009",
+      "timestamp": "2024-01-15T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_002",
+      "eventType": "workers_compensation",
+      "metadata": {
+        "insuranceType": "workers_comp",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Obtained workers compensation insurance"
+    },
+    {
+      "eventId": "evt_010",
+      "timestamp": "2024-01-20T09:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_003",
+      "eventType": "ip_assignment",
+      "metadata": {
+        "documentType": "ip_assignment",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Founders assigned IP to company"
+    },
+    {
+      "eventId": "evt_011",
+      "timestamp": "2024-01-22T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_003",
+      "eventType": "privacy_policy",
+      "metadata": {
+        "documentType": "privacy_policy",
+        "stage": "compliance",
+        "industry": "technology"
+      },
+      "description": "Created GDPR-compliant privacy policy"
+    },
+    {
+      "eventId": "evt_012",
+      "timestamp": "2024-01-24T11:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_003",
+      "eventType": "terms_of_service",
+      "metadata": {
+        "documentType": "terms_of_service",
+        "stage": "compliance",
+        "industry": "technology"
+      },
+      "description": "Published terms of service"
+    },
+    {
+      "eventId": "evt_013",
+      "timestamp": "2024-02-01T09:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "safe_note_preparation",
+      "metadata": {
+        "fundingType": "safe_note",
+        "stage": "seed",
+        "industry": "technology"
+      },
+      "description": "Preparing SAFE note for seed funding"
+    },
+    {
+      "eventId": "evt_014",
+      "timestamp": "2024-02-05T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "investor_nda",
+      "metadata": {
+        "documentType": "nda",
+        "stage": "seed",
+        "industry": "technology"
+      },
+      "description": "Mutual NDA with potential investor"
+    },
+    {
+      "eventId": "evt_015",
+      "timestamp": "2024-02-10T11:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "safe_note_executed",
+      "metadata": {
+        "fundingType": "safe_note",
+        "stage": "seed",
+        "industry": "technology",
+        "amount": 500000
+      },
+      "description": "Executed $500k SAFE note"
+    },
+    {
+      "eventId": "evt_016",
+      "timestamp": "2024-02-15T10:00:00Z",
+      "companyId": "comp_tech_001",
+      "userId": "user_001",
+      "eventType": "option_pool_creation",
+      "metadata": {
+        "documentType": "esop",
+        "stage": "seed",
+        "industry": "technology",
+        "poolSize": 15
+      },
+      "description": "Created 15% employee option pool"
+    },
+    {
+      "eventId": "evt_017",
+      "timestamp": "2024-01-02T09:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_004",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "technology",
+        "stage": "incorporation",
+        "founders": 3,
+        "jurisdiction": "VIC"
+      },
+      "description": "Registered CloudSoft Pty Ltd"
+    },
+    {
+      "eventId": "evt_018",
+      "timestamp": "2024-01-02T15:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_004",
+      "eventType": "shareholders_agreement",
+      "metadata": {
+        "documentType": "shareholders_agreement",
+        "stage": "incorporation",
+        "industry": "technology",
+        "parties": 3
+      },
+      "description": "Shareholders agreement for 3 founders"
+    },
+    {
+      "eventId": "evt_019",
+      "timestamp": "2024-01-03T09:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_004",
+      "eventType": "director_id_verification",
+      "metadata": {
+        "taskType": "compliance",
+        "stage": "incorporation",
+        "industry": "technology"
+      },
+      "description": "Director verification completed"
+    },
+    {
+      "eventId": "evt_020",
+      "timestamp": "2024-01-04T10:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_004",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn_gst",
+        "stage": "incorporation",
+        "industry": "technology"
+      },
+      "description": "Tax registration completed"
+    },
+    {
+      "eventId": "evt_021",
+      "timestamp": "2024-01-06T11:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_004",
+      "eventType": "bank_account_setup",
+      "metadata": {
+        "accountType": "business",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Business banking established"
+    },
+    {
+      "eventId": "evt_022",
+      "timestamp": "2024-01-10T09:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_005",
+      "eventType": "employment_contract",
+      "metadata": {
+        "documentType": "employment_contract",
+        "stage": "operations",
+        "industry": "technology",
+        "role": "product_manager"
+      },
+      "description": "Hired first product manager"
+    },
+    {
+      "eventId": "evt_023",
+      "timestamp": "2024-01-12T10:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_005",
+      "eventType": "payroll_setup",
+      "metadata": {
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Payroll system configured"
+    },
+    {
+      "eventId": "evt_024",
+      "timestamp": "2024-01-14T11:00:00Z",
+      "companyId": "comp_tech_002",
+      "userId": "user_005",
+      "eventType": "superannuation_setup",
+      "metadata": {
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Super fund selected and configured"
+    },
+    {
+      "eventId": "evt_025",
+      "timestamp": "2024-01-03T09:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_006",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "ecommerce",
+        "stage": "incorporation",
+        "founders": 1,
+        "jurisdiction": "NSW"
+      },
+      "description": "Registered QuickCommerce Pty Ltd"
+    },
+    {
+      "eventId": "evt_026",
+      "timestamp": "2024-01-04T10:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_006",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn_gst",
+        "stage": "incorporation",
+        "industry": "ecommerce"
+      },
+      "description": "Registered for GST immediately for e-commerce"
+    },
+    {
+      "eventId": "evt_027",
+      "timestamp": "2024-01-05T11:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_006",
+      "eventType": "bank_account_setup",
+      "metadata": {
+        "accountType": "business",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "Business account with merchant facilities"
+    },
+    {
+      "eventId": "evt_028",
+      "timestamp": "2024-01-06T14:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_006",
+      "eventType": "merchant_account_setup",
+      "metadata": {
+        "paymentProcessor": "stripe",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "Stripe merchant account configured"
+    },
+    {
+      "eventId": "evt_029",
+      "timestamp": "2024-01-08T09:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_007",
+      "eventType": "terms_of_service",
+      "metadata": {
+        "documentType": "terms_of_service",
+        "stage": "compliance",
+        "industry": "ecommerce"
+      },
+      "description": "E-commerce terms of service created"
+    },
+    {
+      "eventId": "evt_030",
+      "timestamp": "2024-01-09T10:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_007",
+      "eventType": "refund_policy",
+      "metadata": {
+        "documentType": "refund_policy",
+        "stage": "compliance",
+        "industry": "ecommerce"
+      },
+      "description": "30-day refund policy established"
+    },
+    {
+      "eventId": "evt_031",
+      "timestamp": "2024-01-10T11:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_007",
+      "eventType": "privacy_policy",
+      "metadata": {
+        "documentType": "privacy_policy",
+        "stage": "compliance",
+        "industry": "ecommerce"
+      },
+      "description": "Privacy policy for customer data"
+    },
+    {
+      "eventId": "evt_032",
+      "timestamp": "2024-01-12T09:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_008",
+      "eventType": "supplier_agreement",
+      "metadata": {
+        "documentType": "supplier_agreement",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "First supplier agreement signed"
+    },
+    {
+      "eventId": "evt_033",
+      "timestamp": "2024-01-14T10:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_008",
+      "eventType": "inventory_insurance",
+      "metadata": {
+        "insuranceType": "inventory",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "Inventory insurance obtained"
+    },
+    {
+      "eventId": "evt_034",
+      "timestamp": "2024-01-16T11:00:00Z",
+      "companyId": "comp_ecom_001",
+      "userId": "user_008",
+      "eventType": "shipping_policy",
+      "metadata": {
+        "documentType": "shipping_policy",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "Shipping and delivery policy created"
+    },
+    {
+      "eventId": "evt_035",
+      "timestamp": "2024-01-05T09:00:00Z",
+      "companyId": "comp_ecom_002",
+      "userId": "user_009",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "ecommerce",
+        "stage": "incorporation",
+        "founders": 2,
+        "jurisdiction": "QLD"
+      },
+      "description": "Registered FastRetail Pty Ltd"
+    },
+    {
+      "eventId": "evt_036",
+      "timestamp": "2024-01-06T10:00:00Z",
+      "companyId": "comp_ecom_002",
+      "userId": "user_009",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn_gst",
+        "stage": "incorporation",
+        "industry": "ecommerce"
+      },
+      "description": "ABN and GST registration"
+    },
+    {
+      "eventId": "evt_037",
+      "timestamp": "2024-01-07T11:00:00Z",
+      "companyId": "comp_ecom_002",
+      "userId": "user_009",
+      "eventType": "bank_account_setup",
+      "metadata": {
+        "accountType": "business",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "Business banking setup"
+    },
+    {
+      "eventId": "evt_038",
+      "timestamp": "2024-01-08T14:00:00Z",
+      "companyId": "comp_ecom_002",
+      "userId": "user_009",
+      "eventType": "merchant_account_setup",
+      "metadata": {
+        "paymentProcessor": "paypal",
+        "stage": "operations",
+        "industry": "ecommerce"
+      },
+      "description": "PayPal business account"
+    },
+    {
+      "eventId": "evt_039",
+      "timestamp": "2024-01-04T09:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_010",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "fintech",
+        "stage": "incorporation",
+        "founders": 2,
+        "jurisdiction": "NSW"
+      },
+      "description": "Registered PayFlow Pty Ltd"
+    },
+    {
+      "eventId": "evt_040",
+      "timestamp": "2024-01-05T10:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_010",
+      "eventType": "shareholders_agreement",
+      "metadata": {
+        "documentType": "shareholders_agreement",
+        "stage": "incorporation",
+        "industry": "fintech"
+      },
+      "description": "Shareholders agreement with IP provisions"
+    },
+    {
+      "eventId": "evt_041",
+      "timestamp": "2024-01-08T09:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_010",
+      "eventType": "responsible_manager_appointment",
+      "metadata": {
+        "role": "responsible_manager",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "Appointed responsible manager for AFSL"
+    },
+    {
+      "eventId": "evt_042",
+      "timestamp": "2024-01-10T10:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_011",
+      "eventType": "aml_policy",
+      "metadata": {
+        "documentType": "aml_ctf_policy",
+        "stage": "compliance",
+        "industry": "fintech"
+      },
+      "description": "AML/CTF policy developed"
+    },
+    {
+      "eventId": "evt_043",
+      "timestamp": "2024-01-12T11:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_011",
+      "eventType": "austrac_registration",
+      "metadata": {
+        "regulatory": "austrac",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "AUSTRAC registration completed"
+    },
+    {
+      "eventId": "evt_044",
+      "timestamp": "2024-01-15T09:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_011",
+      "eventType": "afsl_application",
+      "metadata": {
+        "licenseType": "afsl",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "AFSL application submitted"
+    },
+    {
+      "eventId": "evt_045",
+      "timestamp": "2024-01-18T10:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_012",
+      "eventType": "pci_compliance_prep",
+      "metadata": {
+        "compliance": "pci_dss",
+        "stage": "operations",
+        "industry": "fintech"
+      },
+      "description": "PCI DSS compliance preparation"
+    },
+    {
+      "eventId": "evt_046",
+      "timestamp": "2024-01-20T11:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_012",
+      "eventType": "security_audit",
+      "metadata": {
+        "auditType": "security",
+        "stage": "operations",
+        "industry": "fintech"
+      },
+      "description": "Security audit completed"
+    },
+    {
+      "eventId": "evt_047",
+      "timestamp": "2024-01-22T12:00:00Z",
+      "companyId": "comp_fintech_001",
+      "userId": "user_012",
+      "eventType": "incident_response_plan",
+      "metadata": {
+        "documentType": "incident_response",
+        "stage": "operations",
+        "industry": "fintech"
+      },
+      "description": "Incident response plan created"
+    },
+    {
+      "eventId": "evt_048",
+      "timestamp": "2024-01-06T09:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_013",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "public_company",
+        "industry": "healthcare",
+        "stage": "incorporation",
+        "founders": 3,
+        "jurisdiction": "VIC"
+      },
+      "description": "Registered HealthTech Ltd as public company"
+    },
+    {
+      "eventId": "evt_049",
+      "timestamp": "2024-01-08T10:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_013",
+      "eventType": "board_appointment",
+      "metadata": {
+        "governanceType": "board_structure",
+        "stage": "governance",
+        "industry": "healthcare"
+      },
+      "description": "Board of directors appointed"
+    },
+    {
+      "eventId": "evt_050",
+      "timestamp": "2024-01-10T11:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_013",
+      "eventType": "board_charter",
+      "metadata": {
+        "documentType": "board_charter",
+        "stage": "governance",
+        "industry": "healthcare"
+      },
+      "description": "Board charter established"
+    },
+    {
+      "eventId": "evt_051",
+      "timestamp": "2024-01-12T09:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_014",
+      "eventType": "clinical_advisory_board",
+      "metadata": {
+        "boardType": "advisory",
+        "stage": "operations",
+        "industry": "healthcare"
+      },
+      "description": "Clinical advisory board formed"
+    },
+    {
+      "eventId": "evt_052",
+      "timestamp": "2024-01-15T10:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_014",
+      "eventType": "tga_registration_prep",
+      "metadata": {
+        "regulatory": "tga",
+        "stage": "regulatory",
+        "industry": "healthcare"
+      },
+      "description": "TGA registration preparation started"
+    },
+    {
+      "eventId": "evt_053",
+      "timestamp": "2024-01-18T11:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_014",
+      "eventType": "quality_management_system",
+      "metadata": {
+        "certification": "iso13485",
+        "stage": "regulatory",
+        "industry": "healthcare"
+      },
+      "description": "ISO 13485 implementation"
+    },
+    {
+      "eventId": "evt_054",
+      "timestamp": "2024-01-20T09:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_015",
+      "eventType": "clinical_trial_protocol",
+      "metadata": {
+        "trialPhase": "phase1",
+        "stage": "research",
+        "industry": "healthcare"
+      },
+      "description": "Phase 1 trial protocol developed"
+    },
+    {
+      "eventId": "evt_055",
+      "timestamp": "2024-01-22T10:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_015",
+      "eventType": "ethics_approval",
+      "metadata": {
+        "approvalType": "ethics",
+        "stage": "research",
+        "industry": "healthcare"
+      },
+      "description": "Ethics committee approval obtained"
+    },
+    {
+      "eventId": "evt_056",
+      "timestamp": "2024-01-24T11:00:00Z",
+      "companyId": "comp_health_001",
+      "userId": "user_015",
+      "eventType": "medical_indemnity_insurance",
+      "metadata": {
+        "insuranceType": "medical_indemnity",
+        "stage": "operations",
+        "industry": "healthcare"
+      },
+      "description": "Medical indemnity insurance secured"
+    },
+    {
+      "eventId": "evt_057",
+      "timestamp": "2024-01-07T09:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_016",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "saas",
+        "stage": "incorporation",
+        "founders": 2,
+        "jurisdiction": "NSW"
+      },
+      "description": "Registered CloudSaaS Pty Ltd"
+    },
+    {
+      "eventId": "evt_058",
+      "timestamp": "2024-01-08T14:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_016",
+      "eventType": "shareholders_agreement",
+      "metadata": {
+        "documentType": "shareholders_agreement",
+        "stage": "incorporation",
+        "industry": "saas"
+      },
+      "description": "Founders agreement with vesting"
+    },
+    {
+      "eventId": "evt_059",
+      "timestamp": "2024-01-10T09:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_017",
+      "eventType": "terms_of_service_saas",
+      "metadata": {
+        "documentType": "saas_agreement",
+        "stage": "operations",
+        "industry": "saas"
+      },
+      "description": "SaaS terms of service created"
+    },
+    {
+      "eventId": "evt_060",
+      "timestamp": "2024-01-12T10:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_017",
+      "eventType": "data_processing_agreement",
+      "metadata": {
+        "documentType": "dpa",
+        "stage": "compliance",
+        "industry": "saas"
+      },
+      "description": "GDPR-compliant DPA created"
+    },
+    {
+      "eventId": "evt_061",
+      "timestamp": "2024-01-14T11:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_017",
+      "eventType": "privacy_policy",
+      "metadata": {
+        "documentType": "privacy_policy",
+        "stage": "compliance",
+        "industry": "saas"
+      },
+      "description": "Privacy policy for SaaS platform"
+    },
+    {
+      "eventId": "evt_062",
+      "timestamp": "2024-01-16T09:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_018",
+      "eventType": "security_policy",
+      "metadata": {
+        "documentType": "security_policy",
+        "stage": "compliance",
+        "industry": "saas"
+      },
+      "description": "Information security policy"
+    },
+    {
+      "eventId": "evt_063",
+      "timestamp": "2024-01-18T10:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_018",
+      "eventType": "soc2_preparation",
+      "metadata": {
+        "certification": "soc2_type2",
+        "stage": "compliance",
+        "industry": "saas"
+      },
+      "description": "SOC 2 Type II preparation started"
+    },
+    {
+      "eventId": "evt_064",
+      "timestamp": "2024-01-20T11:00:00Z",
+      "companyId": "comp_saas_001",
+      "userId": "user_018",
+      "eventType": "backup_policy",
+      "metadata": {
+        "documentType": "backup_policy",
+        "stage": "operations",
+        "industry": "saas"
+      },
+      "description": "Data backup and recovery policy"
+    },
+    {
+      "eventId": "evt_065",
+      "timestamp": "2024-01-08T09:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_019",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "consulting",
+        "stage": "incorporation",
+        "founders": 3,
+        "jurisdiction": "VIC"
+      },
+      "description": "Registered Strategic Advisors Pty Ltd"
+    },
+    {
+      "eventId": "evt_066",
+      "timestamp": "2024-01-09T10:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_019",
+      "eventType": "partnership_agreement",
+      "metadata": {
+        "documentType": "partnership_agreement",
+        "stage": "governance",
+        "industry": "consulting"
+      },
+      "description": "Partnership agreement between founders"
+    },
+    {
+      "eventId": "evt_067",
+      "timestamp": "2024-01-10T11:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_019",
+      "eventType": "professional_indemnity",
+      "metadata": {
+        "insuranceType": "professional_indemnity",
+        "stage": "operations",
+        "industry": "consulting"
+      },
+      "description": "Professional indemnity insurance"
+    },
+    {
+      "eventId": "evt_068",
+      "timestamp": "2024-01-12T09:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_020",
+      "eventType": "service_agreement_template",
+      "metadata": {
+        "documentType": "master_service_agreement",
+        "stage": "operations",
+        "industry": "consulting"
+      },
+      "description": "Master service agreement template"
+    },
+    {
+      "eventId": "evt_069",
+      "timestamp": "2024-01-14T10:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_020",
+      "eventType": "engagement_letter_template",
+      "metadata": {
+        "documentType": "engagement_letter",
+        "stage": "operations",
+        "industry": "consulting"
+      },
+      "description": "Client engagement letter template"
+    },
+    {
+      "eventId": "evt_070",
+      "timestamp": "2024-01-16T11:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_020",
+      "eventType": "confidentiality_agreement",
+      "metadata": {
+        "documentType": "nda",
+        "stage": "operations",
+        "industry": "consulting"
+      },
+      "description": "Standard confidentiality agreement"
+    },
+    {
+      "eventId": "evt_071",
+      "timestamp": "2024-01-18T09:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_021",
+      "eventType": "subcontractor_agreement",
+      "metadata": {
+        "documentType": "subcontractor_agreement",
+        "stage": "growth",
+        "industry": "consulting"
+      },
+      "description": "Subcontractor agreement for scaling"
+    },
+    {
+      "eventId": "evt_072",
+      "timestamp": "2024-01-20T10:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_021",
+      "eventType": "referral_agreement",
+      "metadata": {
+        "documentType": "referral_agreement",
+        "stage": "growth",
+        "industry": "consulting"
+      },
+      "description": "Referral partner agreement"
+    },
+    {
+      "eventId": "evt_073",
+      "timestamp": "2024-01-22T11:00:00Z",
+      "companyId": "comp_consult_001",
+      "userId": "user_021",
+      "eventType": "succession_plan",
+      "metadata": {
+        "documentType": "succession_plan",
+        "stage": "governance",
+        "industry": "consulting"
+      },
+      "description": "Business succession planning"
+    },
+    {
+      "eventId": "evt_074",
+      "timestamp": "2024-01-25T09:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_022",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "technology",
+        "stage": "incorporation",
+        "founders": 1,
+        "jurisdiction": "WA"
+      },
+      "description": "Registered DevTools Pty Ltd"
+    },
+    {
+      "eventId": "evt_075",
+      "timestamp": "2024-01-26T10:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_022",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn",
+        "stage": "incorporation",
+        "industry": "technology"
+      },
+      "description": "ABN and ACN registration only"
+    },
+    {
+      "eventId": "evt_076",
+      "timestamp": "2024-01-27T11:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_022",
+      "eventType": "bank_account_setup",
+      "metadata": {
+        "accountType": "business",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Business bank account opened"
+    },
+    {
+      "eventId": "evt_077",
+      "timestamp": "2024-01-28T09:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_023",
+      "eventType": "ip_assignment",
+      "metadata": {
+        "documentType": "ip_assignment",
+        "stage": "operations",
+        "industry": "technology"
+      },
+      "description": "Founder IP assignment"
+    },
+    {
+      "eventId": "evt_078",
+      "timestamp": "2024-01-29T10:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_023",
+      "eventType": "privacy_policy",
+      "metadata": {
+        "documentType": "privacy_policy",
+        "stage": "compliance",
+        "industry": "technology"
+      },
+      "description": "Privacy policy for app users"
+    },
+    {
+      "eventId": "evt_079",
+      "timestamp": "2024-01-30T11:00:00Z",
+      "companyId": "comp_tech_003",
+      "userId": "user_023",
+      "eventType": "terms_of_service",
+      "metadata": {
+        "documentType": "terms_of_service",
+        "stage": "compliance",
+        "industry": "technology"
+      },
+      "description": "Terms of service for software"
+    },
+    {
+      "eventId": "evt_080",
+      "timestamp": "2024-02-01T09:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_024",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "fintech",
+        "stage": "incorporation",
+        "founders": 3,
+        "jurisdiction": "VIC"
+      },
+      "description": "Registered CryptoPayments Pty Ltd"
+    },
+    {
+      "eventId": "evt_081",
+      "timestamp": "2024-02-02T10:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_024",
+      "eventType": "shareholders_agreement",
+      "metadata": {
+        "documentType": "shareholders_agreement",
+        "stage": "incorporation",
+        "industry": "fintech"
+      },
+      "description": "Shareholders agreement with crypto provisions"
+    },
+    {
+      "eventId": "evt_082",
+      "timestamp": "2024-02-03T11:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_024",
+      "eventType": "responsible_manager_appointment",
+      "metadata": {
+        "role": "responsible_manager",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "RM appointment for digital assets"
+    },
+    {
+      "eventId": "evt_083",
+      "timestamp": "2024-02-05T09:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_025",
+      "eventType": "aml_policy",
+      "metadata": {
+        "documentType": "aml_ctf_policy",
+        "stage": "compliance",
+        "industry": "fintech"
+      },
+      "description": "AML policy for digital assets"
+    },
+    {
+      "eventId": "evt_084",
+      "timestamp": "2024-02-06T10:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_025",
+      "eventType": "austrac_registration",
+      "metadata": {
+        "regulatory": "austrac",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "AUSTRAC DCE registration"
+    },
+    {
+      "eventId": "evt_085",
+      "timestamp": "2024-02-07T11:00:00Z",
+      "companyId": "comp_fintech_002",
+      "userId": "user_025",
+      "eventType": "afsl_application",
+      "metadata": {
+        "licenseType": "afsl",
+        "stage": "licensing",
+        "industry": "fintech"
+      },
+      "description": "AFSL for crypto financial products"
+    },
+    {
+      "eventId": "evt_086",
+      "timestamp": "2024-02-08T09:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_026",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "retail",
+        "stage": "incorporation",
+        "founders": 1,
+        "jurisdiction": "NSW"
+      },
+      "description": "Registered Fashion Forward Pty Ltd"
+    },
+    {
+      "eventId": "evt_087",
+      "timestamp": "2024-02-09T10:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_026",
+      "eventType": "tax_registration",
+      "metadata": {
+        "registrationType": "abn_acn_gst",
+        "stage": "incorporation",
+        "industry": "retail"
+      },
+      "description": "Full tax registration for retail"
+    },
+    {
+      "eventId": "evt_088",
+      "timestamp": "2024-02-10T11:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_026",
+      "eventType": "retail_lease",
+      "metadata": {
+        "documentType": "commercial_lease",
+        "stage": "operations",
+        "industry": "retail"
+      },
+      "description": "Retail shop lease signed"
+    },
+    {
+      "eventId": "evt_089",
+      "timestamp": "2024-02-12T09:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_027",
+      "eventType": "retail_insurance",
+      "metadata": {
+        "insuranceType": "retail_package",
+        "stage": "operations",
+        "industry": "retail"
+      },
+      "description": "Comprehensive retail insurance"
+    },
+    {
+      "eventId": "evt_090",
+      "timestamp": "2024-02-13T10:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_027",
+      "eventType": "pos_system_setup",
+      "metadata": {
+        "systemType": "point_of_sale",
+        "stage": "operations",
+        "industry": "retail"
+      },
+      "description": "Point of sale system configured"
+    },
+    {
+      "eventId": "evt_091",
+      "timestamp": "2024-02-14T11:00:00Z",
+      "companyId": "comp_retail_001",
+      "userId": "user_027",
+      "eventType": "inventory_system_setup",
+      "metadata": {
+        "systemType": "inventory_management",
+        "stage": "operations",
+        "industry": "retail"
+      },
+      "description": "Inventory management system"
+    },
+    {
+      "eventId": "evt_092",
+      "timestamp": "2024-02-15T09:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_028",
+      "eventType": "company_registration",
+      "metadata": {
+        "companyType": "proprietary_limited",
+        "industry": "manufacturing",
+        "stage": "incorporation",
+        "founders": 2,
+        "jurisdiction": "SA"
+      },
+      "description": "Registered GreenPack Manufacturing Pty Ltd"
+    },
+    {
+      "eventId": "evt_093",
+      "timestamp": "2024-02-16T10:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_028",
+      "eventType": "environmental_permits",
+      "metadata": {
+        "permitType": "environmental",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "Environmental permits obtained"
+    },
+    {
+      "eventId": "evt_094",
+      "timestamp": "2024-02-17T11:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_028",
+      "eventType": "factory_lease",
+      "metadata": {
+        "documentType": "industrial_lease",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "Factory premises lease"
+    },
+    {
+      "eventId": "evt_095",
+      "timestamp": "2024-02-18T09:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_029",
+      "eventType": "quality_certification",
+      "metadata": {
+        "certification": "iso9001",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "ISO 9001 certification process"
+    },
+    {
+      "eventId": "evt_096",
+      "timestamp": "2024-02-19T10:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_029",
+      "eventType": "workplace_safety_policy",
+      "metadata": {
+        "documentType": "safety_policy",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "Workplace health and safety policy"
+    },
+    {
+      "eventId": "evt_097",
+      "timestamp": "2024-02-20T11:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_029",
+      "eventType": "workers_compensation",
+      "metadata": {
+        "insuranceType": "workers_comp",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "Workers compensation for factory staff"
+    },
+    {
+      "eventId": "evt_098",
+      "timestamp": "2024-02-21T09:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_030",
+      "eventType": "distribution_agreement",
+      "metadata": {
+        "documentType": "distribution_agreement",
+        "stage": "growth",
+        "industry": "manufacturing"
+      },
+      "description": "National distribution agreement"
+    },
+    {
+      "eventId": "evt_099",
+      "timestamp": "2024-02-22T10:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_030",
+      "eventType": "product_liability_insurance",
+      "metadata": {
+        "insuranceType": "product_liability",
+        "stage": "operations",
+        "industry": "manufacturing"
+      },
+      "description": "Product liability insurance"
+    },
+    {
+      "eventId": "evt_100",
+      "timestamp": "2024-02-23T11:00:00Z",
+      "companyId": "comp_manuf_001",
+      "userId": "user_030",
+      "eventType": "export_registration",
+      "metadata": {
+        "registration": "export_license",
+        "stage": "expansion",
+        "industry": "manufacturing"
+      },
+      "description": "Export license for international markets"
+    }
+  ]
+}
