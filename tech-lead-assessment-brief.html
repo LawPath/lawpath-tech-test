@@ -261,7 +261,7 @@
             <tr>
                 <td><strong>Vector Database</strong></td>
                 <td>Qdrant/Pinecone/Weaviate/Chroma</td>
-                <td>Docker container required</td>
+                <td>Docker container or managed service</td>
             </tr>
             <tr>
                 <td><strong>Core AWS Services</strong></td>
@@ -271,13 +271,19 @@
         </tbody>
     </table>
 
-    <h3>Critical Docker Requirements</h3>
-    <p>Your solution must use Docker Compose with LocalStack running as a container for AWS services, a Vector DB container (Qdrant, Weaviate, or Chroma), a shared Docker network for Lambda-to-service communication, and the LAMBDA_DOCKER_NETWORK environment variable configured correctly. LocalStack must be running in Docker to properly simulate Lambda functions — the pip-installed version will not work for this assessment.</p>
+    <h3>Critical Infrastructure Requirements</h3>
+    <p>Your solution must use Docker Compose with LocalStack running as a container for AWS services (if using LocalStack), proper vector database setup (see options below), and if using local services, a shared Docker network for Lambda-to-service communication with the LAMBDA_DOCKER_NETWORK environment variable configured correctly. LocalStack must be running in Docker to properly simulate Lambda functions — the pip-installed version will not work for this assessment.</p>
 
     <p><strong>AWS Environment Options:</strong></p>
     <ul>
         <li><strong>Option 1 - LocalStack (Recommended):</strong> Refer to the official LocalStack documentation at <a href="https://docs.localstack.cloud/getting-started/" target="_blank">https://docs.localstack.cloud/getting-started/</a> for installation and configuration. You can use either Docker or the LocalStack Desktop application. Both support the localhost.localstack.cloud:4566 endpoint for better DNS resolution.</li>
         <li><strong>Option 2 - Your AWS Account:</strong> Alternatively, you may use your own AWS account if you prefer. Ensure you stay within the free tier limits and clearly document any required AWS configuration in your README.</li>
+    </ul>
+
+    <p><strong>Vector Database Options:</strong></p>
+    <ul>
+        <li><strong>Option 1 - Local Container:</strong> Run Qdrant, Weaviate, or Chroma as a Docker container alongside your other services</li>
+        <li><strong>Option 2 - Managed Service:</strong> Use a hosted/managed vector database provider such as Pinecone Cloud, Qdrant Cloud, Weaviate Cloud, or any other managed vector database service. Document the connection details and setup process in your README.</li>
     </ul>
 
     <p>The Docker networking must enable Lambda functions to communicate with both LocalStack services and the vector database. This requires careful configuration of the LAMBDA_DOCKER_NETWORK environment variable to match your compose network name, proper service discovery using container names, and appropriate port mappings for external access.</p>
