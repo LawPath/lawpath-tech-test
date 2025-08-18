@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Lead Assessment Briefing - Lawpath</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-before: always; }
+            h2 { page-break-after: avoid; }
+            h3 { page-break-after: avoid; }
+            table { page-break-inside: avoid; }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #062C71;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #FFFFFF;
+        }
+        
+        h1 {
+            color: #062C71;
+            border-bottom: 3px solid #1A81D5;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #1A81D5;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 1px solid #DCE2EF;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #005194;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        h4 {
+            color: #51628A;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #8293BA;
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0, 29, 54, 0.1);
+        }
+        
+        th {
+            background: #ECF0F8;
+            color: #062C71;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #1A81D5;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #DCE2EF;
+            color: #062C71;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        code {
+            background: #F4F6FB;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #005194;
+        }
+        
+        pre {
+            background: #001D36;
+            color: #F5F9FF;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            line-height: 1.4;
+            margin: 20px 0;
+            border: 1px solid #002D52;
+        }
+        
+        pre code {
+            background: none;
+            color: #F5F9FF;
+            padding: 0;
+        }
+        
+        .key-outcome {
+            background: #D6EAFF;
+            border-left: 4px solid #1A81D5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #005194;
+        }
+        
+        .warning {
+            background: #FFE1C2;
+            border-left: 4px solid #DB8300;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #753D00;
+        }
+        
+        .success-criteria {
+            background: #D7EFEB;
+            border-left: 4px solid #16987C;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #006650;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            color: #062C71;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #062C71;
+            font-weight: 600;
+        }
+        
+        p {
+            color: #062C71;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #DCE2EF;
+            text-align: center;
+            color: #8293BA;
+        }
+        
+        .repo-structure {
+            background: #F4F6FB;
+            border: 1px solid #DCE2EF;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #062C71;
+        }
+    </style>
+</head>
+<body>
+    <h1>Technical Lead Assessment Briefing</h1>
+    <div class="subtitle"><strong>Lawpath Engineering</strong></div>
+
+    <h2>Executive Summary</h2>
+    <p>You are being assessed for the Technical Lead position at Lawpath. This assessment requires approximately 5 hours of focused work and evaluates your ability to design scalable architectures, make strategic technical decisions, and communicate effectively with both technical and non-technical stakeholders.</p>
+    
+    <div class="key-outcome">
+        <strong>Key Outcome:</strong> Demonstrate you can architect and specify a production-ready AI system that scales to 10 million events per day.
+    </div>
+
+    <h2>Assessment Overview</h2>
+
+    <h3>Duration & Structure</h3>
+    <ul>
+        <li><strong>Expected Time:</strong> 5 hours of focused work</li>
+        <li><strong>Submission Deadline:</strong> 1 week from receipt</li>
+        <li><strong>Format:</strong> Take-home technical assessment</li>
+        <li><strong>Submission:</strong> Via GitHub repository</li>
+    </ul>
+
+    <h3>Core Challenge</h3>
+    <p>Design and document a "Smart Next-Step" recommendation system — an AI-powered service that analyses customer behaviour patterns and recommends the most likely next legal or accounting action.</p>
+
+    <h3>Unique Assessment Approach</h3>
+    <p>Instead of coding the solution yourself, you will create comprehensive instructions that an AI coding assistant (Claude, Cursor, GitHub Copilot, etc.) can execute to build the entire system automatically.</p>
+
+    <h3>Evaluation Focus</h3>
+    <p>Your assessment will focus on architectural thinking over code completion, your ability to specify systems unambiguously, scalability and production readiness considerations, and clear technical communication suitable for AI tools.</p>
+
+    <h2>Primary Deliverable: AI-Ready Implementation Guide</h2>
+
+    <h3>What You're Creating</h3>
+    <p>An <code>IMPLEMENTATION.md</code> document that serves as a complete blueprint for AI coding tools. When pasted into any AI assistant, it should result in a fully functional system without human intervention.</p>
+
+    <h3>Target Audience: AI Coding Assistants</h3>
+    <p>Your instructions must be explicit with no assumptions, sequential with clear order of operations, complete with all files and configurations defined, and testable with validation steps throughout.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Technical Requirements</h2>
+
+    <h3>Mandatory Technology Stack</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Required Technology</th>
+                <th>Implementation Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Local AWS</strong></td>
+                <td>LocalStack (Docker)</td>
+                <td>Must run in Docker container, NOT pip install</td>
+            </tr>
+            <tr>
+                <td><strong>Infrastructure as Code</strong></td>
+                <td>Serverless Framework</td>
+                <td>Complete serverless.yml required</td>
+            </tr>
+            <tr>
+                <td><strong>Runtime</strong></td>
+                <td>AWS Lambda (Node.js 18+)</td>
+                <td>Full handler code needed</td>
+            </tr>
+            <tr>
+                <td><strong>Vector Database</strong></td>
+                <td>Qdrant/Pinecone/Weaviate/Chroma</td>
+                <td>Docker container required</td>
+            </tr>
+            <tr>
+                <td><strong>Core AWS Services</strong></td>
+                <td>API Gateway, DynamoDB, S3, SNS</td>
+                <td>Via LocalStack container</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Critical Docker Requirements</h3>
+    <p>Your solution must use Docker Compose with LocalStack running as a container for AWS services, a Vector DB container (Qdrant, Weaviate, or Chroma), a shared Docker network for Lambda-to-service communication, and the LAMBDA_DOCKER_NETWORK environment variable configured correctly. LocalStack must be running in Docker to properly simulate Lambda functions — the pip-installed version will not work for this assessment.</p>
+
+    <p>The Docker networking must enable Lambda functions to communicate with both LocalStack services and the vector database. This requires careful configuration of the LAMBDA_DOCKER_NETWORK environment variable to match your compose network name, proper service discovery using container names, and appropriate port mappings for external access.</p>
+
+    <h3>Required Data Flow Architecture</h3>
+    <p>Your AI instructions must implement this exact five-step flow:</p>
+    <ol>
+        <li><strong>API Gateway → Lambda (Event Handler):</strong> Configure POST /events endpoint using the structure from sample-events.json, with request validation schema and proper error responses</li>
+        <li><strong>Lambda validates & generates embedding:</strong> Implement input validation logic, embedding generation using Hugging Face models or embedding service, and comprehensive error handling</li>
+        <li><strong>Lambda stores data in three locations:</strong> DynamoDB for metadata and fast queries, S3 for raw event archival and compliance, Vector DB for semantic similarity search</li>
+        <li><strong>Lambda publishes to SNS topic:</strong> Configure topic with proper permissions and structured message format for downstream consumers</li>
+        <li><strong>SNS fans out to subscribers:</strong> Analytics Lambda for aggregations, Recommendation update Lambda for model improvements, Alert Lambda for anomaly detection</li>
+    </ol>
+
+    <h3>System Design Requirements</h3>
+    <p>The architecture must be designed to scale to 10 million events per day with complete multi-tenant data isolation between companies. Implement event sourcing with S3 as the immutable event store and ensure high availability through fault-tolerant design with fallback strategies.</p>
+
+    <p>Multi-tenancy must be enforced at every layer with companyId-based partitioning in DynamoDB, S3 prefix isolation per company, vector database namespaces or metadata filtering, and SNS message attributes for routing.</p>
+
+    <div class="page-break"></div>
+
+    <h3>Infrastructure as Code Specifications</h3>
+    <p>Your Serverless Framework configuration must include Lambda function definitions, DynamoDB tables, S3 buckets, SNS topics, API Gateway endpoints, and IAM roles.</p>
+
+    <p>The LocalStack configuration must specify all required AWS services, proper endpoint configuration for local development, Lambda executor settings for Docker-based execution, and volume mounts for data persistence across restarts.</p>
+
+    <h3>Vector Search Implementation</h3>
+    <p>Implement semantic search capabilities including text embedding generation for all events, k-nearest neighbor search with configurable k value, metadata filtering by company, industry, and stage, hybrid search combining vector similarity with keyword matching, and relevance scoring with configurable thresholds.</p>
+
+    <p>The vector database must support collection/index creation with proper dimensions, batch insertion for initial data load, real-time updates as new events arrive, and efficient similarity search with metadata filtering.</p>
+
+    <h2>Deliverables</h2>
+
+    <h3>1. IMPLEMENTATION.md (Primary - 60% of grade)</h3>
+    <p>Your IMPLEMENTATION.md must be completely executable by AI tools and include complete Docker Compose configuration, full Lambda function implementations, comprehensive test specifications, deployment automation scripts, and data loading procedures for the sample dataset.</p>
+
+    <p>The document should guide an AI to create a fully functional system including all infrastructure setup, application code, configuration files, test suites, and operational scripts. Every technical decision should be explicitly specified with no room for interpretation.</p>
+
+    <h3>2. Architecture Documentation (25% of grade)</h3>
+    <p>Provide a system diagram showing the complete 5-step data flow with all components and their interactions. Include a technical decisions document (2 pages maximum) explaining your technology choices, trade-offs between different approaches, scalability considerations, and cost optimization strategies.</p>
+
+    <p>Document the Docker networking architecture showing how containers communicate, the event-driven architecture with SNS fan-out pattern, data storage strategy across DynamoDB, S3, and vector database, and security boundaries with IAM roles and policies.</p>
+
+    <h3>3. Product Impact Analysis (15% of grade)</h3>
+    <p>Define success metrics including recommendation accuracy, system performance KPIs, user engagement metrics, and business value indicators. Describe your A/B testing approach for validating recommendation quality and iterating on the model.</p>
+
+    <p>Provide a roadmap with at least 2 future features that leverage this architecture, such as real-time recommendation updates, industry-specific models, or advanced analytics dashboards.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Provided Resources</h2>
+
+    <h3>Sample Dataset</h3>
+    <p>You'll receive <code>sample-events.json</code> containing 85+ real business events from 8 companies across multiple industries (Technology, E-commerce, Healthcare, Fintech, Consulting, Retail, Manufacturing, SaaS). This dataset demonstrates realistic business progression patterns with sequential events showing actual company journeys.</p>
+
+    <p>The data includes various event types such as company registration, document creation, compliance filings, and financial transactions. Each company's event sequence represents ground truth for training recommendations — what companies actually did next in their journey.</p>
+
+    <h3>Event Structure</h3>
+    <pre><code>{
+  "eventId": "evt_2024_001",
+  "companyId": "comp_123",
+  "userId": "user_456",
+  "eventType": "document_created",
+  "metadata": {
+    "documentType": "shareholders_agreement",
+    "industry": "technology",
+    "stage": "incorporation"
+  },
+  "description": "Created shareholders agreement with vesting schedule",
+  "timestamp": "2024-01-15T10:30:00Z"
+}</code></pre>
+
+    <h2>Assessment Criteria</h2>
+
+    <h3>Scoring Breakdown</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Area</th>
+                <th>Weight</th>
+                <th>Key Evaluation Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>AI Instruction Quality</strong></td>
+                <td>35%</td>
+                <td>Completeness, clarity, executability by AI tools</td>
+            </tr>
+            <tr>
+                <td><strong>Architecture</strong></td>
+                <td>25%</td>
+                <td>Scalability, correct data flow, Docker setup</td>
+            </tr>
+            <tr>
+                <td><strong>Implementation Specs</strong></td>
+                <td>20%</td>
+                <td>Error handling, production readiness, testing</td>
+            </tr>
+            <tr>
+                <td><strong>Infrastructure</strong></td>
+                <td>10%</td>
+                <td>Docker/IaC completeness, networking, monitoring</td>
+            </tr>
+            <tr>
+                <td><strong>Product Thinking</strong></td>
+                <td>10%</td>
+                <td>Metrics, experimentation, business alignment</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>AI Executability Test</h3>
+    <p>Your IMPLEMENTATION.md will be tested by pasting it into an AI coding assistant and verifying that the generated code runs successfully. The AI tool should achieve a working system in under 30 minutes with all Docker containers starting successfully, Lambda functions properly communicating with all services, and the complete data flow working end-to-end.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Validation Requirements</h2>
+    <p>When an AI tool receives your IMPLEMENTATION.md, it must be able to start from an empty directory and create a fully functional system. The system must successfully start all Docker containers, deploy Lambda functions to LocalStack, handle API requests correctly, process events through all five stages, and pass automated tests.</p>
+
+    <p>The validation will verify that events flow from API Gateway through to SNS subscribers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, multi-tenant isolation is maintained, and error scenarios are handled gracefully.</p>
+
+    <h2>Common Pitfalls to Avoid</h2>
+    <p>Ensure LocalStack runs in a Docker container rather than pip installation, as Lambda execution requires Docker-based LocalStack. Configure networking properly so Lambda functions can reach both LocalStack services and the vector database. Use container names for service discovery rather than localhost or IP addresses.</p>
+
+    <p>Avoid vague instructions that leave room for interpretation. Specify exact package versions, complete configuration files, full error handling logic, and precise deployment commands. Don't assume the AI knows architectural patterns — explicitly define every component, connection, and data flow.</p>
+
+    <h2>Time Management Guidance</h2>
+    <p><em>Suggested allocation for the 5 hours of work:</em></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Phase</th>
+                <th>Time</th>
+                <th>Focus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Architecture Design</strong></td>
+                <td>75 min</td>
+                <td>Data flow, Docker architecture, system design</td>
+            </tr>
+            <tr>
+                <td><strong>IMPLEMENTATION.md Creation</strong></td>
+                <td>175 min</td>
+                <td>AI-executable instructions with complete details</td>
+            </tr>
+            <tr>
+                <td><strong>Product & Documentation</strong></td>
+                <td>50 min</td>
+                <td>Supporting documents and diagrams</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Final Submission</h2>
+
+    <h3>Repository Structure</h3>
+    <div class="repo-structure">
+/<br>
+├── IMPLEMENTATION.md          # AI-ready instructions (PRIMARY)<br>
+├── docs/<br>
+│   ├── architecture.md       # System design with Docker networking<br>
+│   ├── decisions.md          # Technical choices and rationale<br>
+│   └── product-brief.md      # Business metrics and roadmap<br>
+├── diagrams/<br>
+│   └── system-flow.png       # Visual architecture<br>
+├── data/<br>
+│   └── sample-events.json    # Provided test data<br>
+└── README.md                 # Usage instructions
+    </div>
+
+    <h3>Optional Loom Video</h3>
+    <p>You may submit a 5-minute Loom video demonstrating your IMPLEMENTATION.md being used with an AI assistant, explaining key architectural decisions, and showing the generated solution working. This is optional but can help showcase your communication skills and system understanding.</p>
+
+    <h3>Success Metrics</h3>
+    <p>Your solution succeeds if an AI tool can build it without human intervention, all Docker containers run successfully, LocalStack Lambda functions work properly, data flows through all 5 stages correctly, and tests pass automatically.</p>
+
+    <h2>Final Notes</h2>
+    <p>We seek technical leaders who understand cloud-native architectures, container orchestration, and can translate complex systems into precise specifications that AI tools can execute flawlessly. Your ability to bridge the gap between high-level architecture and detailed implementation through clear communication is crucial.</p>
+
+    <p>Remember: You're architecting a containerised, event-driven system with instructions so clear that an AI can build it autonomously on the first attempt. Focus on precision, completeness, and production-ready design. You have one week to complete this assessment, with an expected time investment of 5 hours.</p>
+
+    <div class="success-criteria">
+        <p><strong>Submission Deadline:</strong> 1 week from receipt of assessment</p>
+        <p><strong>Expected Time Investment:</strong> 5 hours</p>
+        <p><strong>Format:</strong> GitHub repository link</p>
+        <p><strong>Optional:</strong> 5-minute Loom video walkthrough</p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Good luck. Show us your ability to specify complex, containerised systems with precision.</strong></p>
+        <p><em>Lawpath Engineering Team</em></p>
+    </div>
+</body>
+</html>
