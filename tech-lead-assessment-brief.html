@@ -285,6 +285,12 @@
         <li><strong>Lambda publishes to SNS topic:</strong> Configure topic with proper permissions and structured message format for downstream consumers</li>
         <li><strong>SNS fans out to subscribers:</strong> Analytics Lambda for aggregations, Recommendation update Lambda for model improvements, Alert Lambda for anomaly detection</li>
     </ol>
+    
+    <h3>Required API Endpoints</h3>
+    <ul>
+        <li><strong>POST /events</strong> - Ingests new business events and triggers the 5-step flow</li>
+        <li><strong>GET /recommendations?user_id={id}&limit={k}</strong> - Returns top-K next actions based on similar patterns</li>
+    </ul>
 
     <h3>System Design Requirements</h3>
     <p>The architecture must be designed to scale to 10 million events per day with complete multi-tenant data isolation between companies. Implement event sourcing with S3 as the immutable event store and ensure high availability through fault-tolerant design with fallback strategies.</p>
@@ -394,6 +400,35 @@
     <p>When an AI tool receives your IMPLEMENTATION.md, it must be able to start from an empty directory and create a fully functional system. The system must successfully start all Docker containers, deploy Lambda functions to LocalStack, handle API requests correctly, process events through all five stages, and pass automated tests.</p>
 
     <p>The validation will verify that events flow from API Gateway through to SNS subscribers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, multi-tenant isolation is maintained, and error scenarios are handled gracefully.</p>
+    
+    <h3>Test Flow A: Event Ingestion</h3>
+    <pre><code>// POST /events
+{
+  "companyId": "comp_123",
+  "userId": "user_456",
+  "eventType": "document_created",
+  "metadata": {
+    "documentType": "shareholders_agreement",
+    "industry": "technology"
+  }
+}
+
+// Verify:
+✓ DynamoDB entry created
+✓ S3 object stored
+✓ Vector in Qdrant/Weaviate
+✓ SNS message published
+✓ Response: 200 with eventId</code></pre>
+
+    <h3>Test Flow B: Recommendations</h3>
+    <pre><code>// GET /recommendations?user_id=user_456&limit=5
+
+// Verify:
+✓ Returns 5 recommendations
+✓ Sorted by relevance score
+✓ Includes confidence levels
+✓ Response time < 200ms
+✓ Uses cached results if available</code></pre>
 
     <h2>Common Pitfalls to Avoid</h2>
     <p>Ensure LocalStack runs in a Docker container rather than pip installation, as Lambda execution requires Docker-based LocalStack. Configure networking properly so Lambda functions can reach both LocalStack services and the vector database. Use container names for service discovery rather than localhost or IP addresses.</p>
