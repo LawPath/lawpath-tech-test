@@ -213,21 +213,21 @@
     </ul>
 
     <h3>Core Challenge</h3>
-    <p>Design and document a "Smart Next-Step" recommendation system — an AI-powered service that analyses customer behaviour patterns and recommends the most likely next legal or accounting action.</p>
+    <p>Build a "Smart Next-Step" recommendation system — an AI-powered service that analyses customer behaviour patterns and recommends the most likely next legal or accounting action.</p>
 
-    <h3>Unique Assessment Approach</h3>
-    <p>Instead of coding the solution yourself, you will create comprehensive instructions that an AI coding assistant (Claude, Cursor, GitHub Copilot, etc.) can execute to build the entire system automatically.</p>
+    <h3>Assessment Approach</h3>
+    <p>You will implement a working system using LocalStack and Docker, demonstrating your ability to build cloud-native applications locally with production-ready patterns.</p>
 
     <h3>Evaluation Focus</h3>
-    <p>Your assessment will focus on architectural thinking over code completion, your ability to specify systems unambiguously, scalability and production readiness considerations, and clear technical communication suitable for AI tools.</p>
+    <p>Your assessment will focus on working implementation with proper architecture, clean code with appropriate abstractions, scalability and production readiness considerations, and automated testing via shell scripts.</p>
 
-    <h2>Primary Deliverable: AI-Ready Implementation Guide</h2>
+    <h2>Primary Deliverable: Working Implementation</h2>
 
     <h3>What You're Creating</h3>
-    <p>An <code>IMPLEMENTATION.md</code> document that serves as a complete blueprint for AI coding tools. When pasted into any AI assistant, it should result in a fully functional system without human intervention.</p>
+    <p>A fully functional recommendation system with complete infrastructure setup, Lambda functions, and a <code>test-flow.sh</code> script that demonstrates the entire system working end-to-end.</p>
 
-    <h3>Target Audience: AI Coding Assistants</h3>
-    <p>Your instructions must be explicit with no assumptions, sequential with clear order of operations, complete with all files and configurations defined, and testable with validation steps throughout.</p>
+    <h3>Key Validation Script</h3>
+    <p>Your <code>test-flow.sh</code> must start all Docker containers, deploy infrastructure to LocalStack, load sample data, test event ingestion, query recommendations, and validate all components are working correctly.</p>
 
     <div class="page-break"></div>
 
@@ -363,10 +363,15 @@
 
     <h2>Deliverables</h2>
 
-    <h3>1. IMPLEMENTATION.md (Primary - 60% of grade)</h3>
-    <p>Your IMPLEMENTATION.md must be completely executable by AI tools and include complete Docker Compose configuration, full Lambda function implementations, comprehensive test specifications, deployment automation scripts, and data loading procedures for the sample dataset.</p>
-
-    <p>The document should guide an AI to create a fully functional system including all infrastructure setup, application code, configuration files, test suites, and operational scripts. Every technical decision should be explicitly specified with no room for interpretation.</p>
+    <h3>1. Working Implementation (Primary - 60% of grade)</h3>
+    <p>Your implementation must include:</p>
+    <ul>
+        <li><strong>Docker Compose:</strong> Complete configuration for LocalStack and Vector DB</li>
+        <li><strong>Lambda Functions:</strong> Event ingestion, workers (DynamoDB, S3, Vector), and recommendation service</li>
+        <li><strong>Infrastructure Code:</strong> Serverless Framework or Terraform configuration</li>
+        <li><strong>test-flow.sh:</strong> Automated script that starts the system and validates all components</li>
+        <li><strong>Data Loader:</strong> Script to load and index the sample events</li>
+    </ul>
 
     <h3>2. Architecture Documentation (25% of grade)</h3>
     <p>Provide a system diagram showing the complete 5-step data flow with all components and their interactions. Include a technical decisions document (2 pages maximum) explaining your technology choices, trade-offs between different approaches, scalability considerations, and cost optimization strategies.</p>
@@ -416,42 +421,51 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>AI Instruction Quality</strong></td>
+                <td><strong>Code Quality</strong></td>
                 <td>35%</td>
-                <td>Completeness, clarity, executability by AI tools</td>
+                <td>Clean code, proper abstractions, error handling</td>
             </tr>
             <tr>
                 <td><strong>Architecture</strong></td>
                 <td>25%</td>
-                <td>Scalability, correct data flow, Docker setup</td>
+                <td>Scalability, correct data flow, system design</td>
             </tr>
             <tr>
-                <td><strong>Implementation Specs</strong></td>
+                <td><strong>Implementation</strong></td>
                 <td>20%</td>
-                <td>Error handling, production readiness, testing</td>
+                <td>Working solution, test coverage, automation</td>
             </tr>
             <tr>
                 <td><strong>Infrastructure</strong></td>
                 <td>10%</td>
-                <td>Docker/IaC completeness, networking, monitoring</td>
+                <td>Docker setup, IaC, proper configuration</td>
             </tr>
             <tr>
-                <td><strong>Product Thinking</strong></td>
+                <td><strong>Documentation</strong></td>
                 <td>10%</td>
-                <td>Metrics, experimentation, business alignment</td>
+                <td>Clear README, architecture docs, test instructions</td>
             </tr>
         </tbody>
     </table>
 
-    <h3>AI Executability Test</h3>
-    <p>Your IMPLEMENTATION.md will be tested by pasting it into an AI coding assistant and verifying that the generated code runs successfully. The AI tool should achieve a working system in under 30 minutes with all Docker containers starting successfully, Lambda functions properly communicating with all services, and the complete data flow working end-to-end.</p>
+    <h3>test-flow.sh Validation</h3>
+    <p>Your test-flow.sh script will be executed to verify the system works end-to-end. The script should complete in under 5 minutes with all Docker containers starting successfully, Lambda functions properly deployed to LocalStack, sample data loaded and indexed, and both ingestion and recommendation APIs working correctly.</p>
 
     <div class="page-break"></div>
 
     <h2>Validation Requirements</h2>
-    <p>When an AI tool receives your IMPLEMENTATION.md, it must be able to start from an empty directory and create a fully functional system. The system must successfully start all Docker containers, deploy Lambda functions to LocalStack, handle API requests correctly, process events through all five stages, and pass automated tests.</p>
+    <p>Your <code>test-flow.sh</code> script must demonstrate a complete working system. Running <code>./test-flow.sh</code> should:</p>
+    <ol>
+        <li>Start Docker Compose services (LocalStack, Vector DB)</li>
+        <li>Deploy all Lambda functions and infrastructure</li>
+        <li>Load sample events from sample-events.json</li>
+        <li>Test event ingestion with multiple POST requests</li>
+        <li>Verify data storage in all three layers</li>
+        <li>Query recommendations and validate responses</li>
+        <li>Display clear pass/fail results for each test</li>
+    </ol>
 
-    <p>The validation will verify that events flow from API Gateway through to SNS subscribers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, multi-tenant isolation is maintained, and error scenarios are handled gracefully.</p>
+    <p>The validation will verify that events flow through SNS to all workers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, response times meet requirements, and the system handles concurrent requests.</p>
     
     <h3>Test Flow A: Event Ingestion</h3>
     <pre><code>// POST /events
@@ -487,7 +501,7 @@
     <h2>Common Pitfalls to Avoid</h2>
     <p>Ensure LocalStack runs in a Docker container rather than pip installation, as Lambda execution requires Docker-based LocalStack. Configure networking properly so Lambda functions can reach both LocalStack services and the vector database. Use container names for service discovery rather than localhost or IP addresses.</p>
 
-    <p>Avoid vague instructions that leave room for interpretation. Specify exact package versions, complete configuration files, full error handling logic, and precise deployment commands. Don't assume the AI knows architectural patterns — explicitly define every component, connection, and data flow.</p>
+    <p>Write clean, maintainable code with proper error handling. Use environment variables for configuration. Implement proper logging for debugging. Include retry logic for transient failures. Test your solution thoroughly before submission.</p>
 
     <h2>Time Management Guidance</h2>
     <p><em>Suggested allocation for the 5 hours of work:</em></p>
@@ -502,18 +516,18 @@
         <tbody>
             <tr>
                 <td><strong>Architecture Design</strong></td>
-                <td>75 min</td>
-                <td>Data flow, Docker architecture, system design</td>
+                <td>60 min</td>
+                <td>Data flow, Docker setup, system design</td>
             </tr>
             <tr>
-                <td><strong>IMPLEMENTATION.md Creation</strong></td>
-                <td>175 min</td>
-                <td>AI-executable instructions with complete details</td>
+                <td><strong>Implementation</strong></td>
+                <td>180 min</td>
+                <td>Lambda functions, infrastructure code, Docker compose</td>
             </tr>
             <tr>
-                <td><strong>Product & Documentation</strong></td>
-                <td>50 min</td>
-                <td>Supporting documents and diagrams</td>
+                <td><strong>Testing & Documentation</strong></td>
+                <td>60 min</td>
+                <td>test-flow.sh script, documentation, diagrams</td>
             </tr>
         </tbody>
     </table>
@@ -523,28 +537,35 @@
     <h3>Repository Structure</h3>
     <div class="repo-structure">
 /<br>
-├── IMPLEMENTATION.md          # AI-ready instructions (PRIMARY)<br>
+├── docker-compose.yml        # LocalStack + Vector DB setup<br>
+├── serverless.yml           # Infrastructure as code<br>
+├── lambdas/<br>
+│   ├── event-ingestion/<br>
+│   ├── dynamo-worker/<br>
+│   ├── s3-worker/<br>
+│   ├── vector-worker/<br>
+│   └── recommendation/<br>
+├── scripts/<br>
+│   ├── test-flow.sh         # PRIMARY validation script<br>
+│   └── load-data.sh         # Sample data loader<br>
 ├── docs/<br>
-│   ├── architecture.md       # System design with Docker networking<br>
-│   ├── decisions.md          # Technical choices and rationale<br>
-│   └── product-brief.md      # Business metrics and roadmap<br>
-├── diagrams/<br>
-│   └── system-flow.png       # Visual architecture<br>
+│   ├── architecture.md      # System design<br>
+│   └── decisions.md         # Technical rationale<br>
 ├── data/<br>
-│   └── sample-events.json    # Provided test data<br>
-└── README.md                 # Usage instructions
+│   └── sample-events.json   # Provided test data<br>
+└── README.md                # Setup and usage instructions
     </div>
 
     <h3>Optional Loom Video</h3>
-    <p>You may submit a 5-minute Loom video demonstrating your IMPLEMENTATION.md being used with an AI assistant, explaining key architectural decisions, and showing the generated solution working. This is optional but can help showcase your communication skills and system understanding.</p>
+    <p>You may submit a 5-minute Loom video walking through your solution, demonstrating test-flow.sh execution, explaining key architectural decisions, and showing the system handling real requests. This is optional but can help showcase your communication skills and system understanding.</p>
 
     <h3>Success Metrics</h3>
-    <p>Your solution succeeds if an AI tool can build it without human intervention, all Docker containers run successfully, LocalStack Lambda functions work properly, data flows through all 5 stages correctly, and tests pass automatically.</p>
+    <p>Your solution succeeds if test-flow.sh runs without errors, all Docker containers start successfully, Lambda functions deploy and execute properly, data flows through SNS to all workers, and recommendation API returns relevant results.</p>
 
     <h2>Final Notes</h2>
-    <p>We seek technical leaders who understand cloud-native architectures, container orchestration, and can translate complex systems into precise specifications that AI tools can execute flawlessly. Your ability to bridge the gap between high-level architecture and detailed implementation through clear communication is crucial.</p>
+    <p>We seek technical leaders who can build production-ready systems using modern cloud-native patterns. Your implementation should demonstrate clean architecture, proper error handling, and scalable design patterns.</p>
 
-    <p>Remember: You're architecting a containerised, event-driven system with instructions so clear that an AI can build it autonomously on the first attempt. Focus on precision, completeness, and production-ready design. You have one week to complete this assessment, with an expected time investment of 5 hours.</p>
+    <p>Remember: You're building a containerised, event-driven recommendation system that can be validated with a single shell script. Focus on working code, clean abstractions, and production-ready patterns. You have one week to complete this assessment, with an expected time investment of 5 hours.</p>
 
     <div class="success-criteria">
         <p><strong>Submission Deadline:</strong> 1 week from receipt of assessment</p>
