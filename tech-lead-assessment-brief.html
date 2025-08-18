@@ -302,7 +302,7 @@
     <ol>
         <li><strong>API Gateway → Lambda (Recommendation Service):</strong> Handles GET /recommendations requests</li>
         <li><strong>Lambda queries Vector DB:</strong> Performs similarity search to find relevant patterns</li>
-        <li><strong>Lambda returns recommendations:</strong> Analyzes similar journeys and returns next-step predictions</li>
+        <li><strong>Lambda returns recommendations:</strong> Analyses similar journeys and returns next-step predictions</li>
     </ol>
     
     <h3>Required API Endpoints</h3>
@@ -344,7 +344,7 @@
     <ul>
         <li><strong>Embedding Generation:</strong> Convert event descriptions and metadata into high-dimensional vectors using Sentence Transformers or OpenAI embeddings</li>
         <li><strong>Similarity Search:</strong> Find the k-nearest neighbors based on cosine similarity between event embeddings</li>
-        <li><strong>Journey Analysis:</strong> For similar events, analyze what actions other companies took next in their journey</li>
+        <li><strong>Journey Analysis:</strong> For similar events, analyse what actions other companies took next in their journey</li>
         <li><strong>Recommendation Scoring:</strong> Weight recommendations by similarity score, recency, and success patterns</li>
         <li><strong>Contextual Filtering:</strong> Apply metadata filters for industry, company stage, and business size</li>
     </ul>
@@ -381,7 +381,7 @@
     </ul>
 
     <h3>2. Architecture Documentation (25% of grade)</h3>
-    <p>Provide a system diagram showing the complete 5-step data flow with all components and their interactions. Include a technical decisions document (2 pages maximum) explaining your technology choices, trade-offs between different approaches, scalability considerations, and cost optimization strategies.</p>
+    <p>Provide a system diagram showing the complete 5-step data flow with all components and their interactions. Include a technical decisions document (2 pages maximum) explaining your technology choices, trade-offs between different approaches, scalability considerations, and cost optimisation strategies.</p>
 
     <p>Document the Docker networking architecture showing how containers communicate, the event-driven architecture with SNS fan-out pattern, data storage strategy across DynamoDB, S3, and vector database, and security boundaries with IAM roles and policies.</p>
 
@@ -574,7 +574,7 @@ python run.py                # Python orchestrator</code></pre>
     <p>You may submit a 5-minute Loom video walking through your solution, demonstrating the system running, explaining key architectural decisions, and showing how the system handles real requests. This is optional but can help showcase your communication skills and system understanding.</p>
 
     <h3>Success Metrics</h3>
-    <p>Your solution succeeds if we can run a single command that starts your entire system, all services initialize correctly, test data loads successfully, both APIs work as expected, and the output clearly shows the system is operational.</p>
+    <p>Your solution succeeds if we can run a single command that starts your entire system, all services initialise correctly, test data loads successfully, both APIs work as expected, and the output clearly shows the system is operational.</p>
 
     <h2>Final Notes</h2>
     <p>We seek technical leaders who can build production-ready systems using modern cloud-native patterns. Your implementation should demonstrate clean architecture, proper error handling, and scalable design patterns.</p>
