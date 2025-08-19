@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Assessment Briefing - Lawpath</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-before: always; }
+            h2 { page-break-after: avoid; }
+            h3 { page-break-after: avoid; }
+            table { page-break-inside: avoid; }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #062C71;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #FFFFFF;
+        }
+        
+        h1 {
+            color: #062C71;
+            border-bottom: 3px solid #1A81D5;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #1A81D5;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 1px solid #DCE2EF;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #005194;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        h4 {
+            color: #51628A;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #8293BA;
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0, 29, 54, 0.1);
+        }
+        
+        th {
+            background: #ECF0F8;
+            color: #062C71;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #1A81D5;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #DCE2EF;
+            color: #062C71;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        code {
+            background: #F4F6FB;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #005194;
+        }
+        
+        pre {
+            background: #F4F6FB;
+            color: #062C71;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            line-height: 1.4;
+            margin: 20px 0;
+            border: 1px solid #DCE2EF;
+        }
+        
+        pre code {
+            background: none;
+            color: #062C71;
+            padding: 0;
+        }
+        
+        .key-outcome {
+            background: #D6EAFF;
+            border-left: 4px solid #1A81D5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #005194;
+        }
+        
+        .warning {
+            background: #FFE1C2;
+            border-left: 4px solid #DB8300;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #753D00;
+        }
+        
+        .success-criteria {
+            background: #D7EFEB;
+            border-left: 4px solid #16987C;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #006650;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            color: #062C71;
+        }
+        
+        li {
+            margin: 8px 0;
+            color: #062C71;
+        }
+        
+        strong {
+            color: #062C71;
+            font-weight: 600;
+        }
+        
+        p {
+            color: #062C71;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #DCE2EF;
+            text-align: center;
+            color: #8293BA;
+        }
+        
+        .logo-container {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .repo-structure {
+            background: #F4F6FB;
+            border: 1px solid #DCE2EF;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #062C71;
+        }
+        
+        .arrow {
+            color: #1A81D5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.png" alt="Lawpath Logo" class="logo">
+    </div>
+    <h1>Engineer Assessment Briefing</h1>
+    <div class="subtitle"><strong>Lawpath Engineering - Next.js Developer</strong></div>
+    
+    <h2>Executive Summary</h2>
+    <p>You are being assessed for the Engineer position at Lawpath. This is a two-part assessment: a technical implementation challenge followed by a presentation. The assessment evaluates your ability to build modern web applications using Next.js, integrate with external APIs through GraphQL, implement proper data persistence and logging, and communicate technical decisions effectively.</p>
+    
+    <div class="key-outcome">
+        <strong>Key Outcome:</strong> Demonstrate you can build a production-ready Next.js application with advanced state management, API integration, and real-time data visualization, then present your architectural decisions and scaling strategies.
+    </div>
+    
+    <div class="success-criteria">
+        <p><strong>Assessment Structure:</strong></p>
+        <p>• <strong>Technical Implementation:</strong> 40% of total assessment</p>
+        <p>• <strong>Presentation & Architecture Discussion:</strong> 60% of total assessment</p>
+        <p>• <strong>Expected Time Investment:</strong> 1-2 days for implementation + presentation preparation</p>
+    </div>
+
+    <h2>Description</h2>
+        <p>
+            Create a single-page application using only Next.js with two interactive tabs: a <strong>Verifier</strong> tab and
+            a <strong>Source</strong> tab
+        </p>
+        <ul>
+            <li>The <strong>Verifier tab</strong> should contain a form that captures a postcode, suburb, and state.
+                Upon submission, the form must query the Australia Post API through a GraphQL proxy
+                to confirm the validity of the entered address.</li>
+            <li>The <strong>Source tab</strong> should provide an interface to search for locations within a suburb or
+                postcode. When the user enters a suburb/postcode, the application must query the
+                same GraphQL proxy and display a selectable list of locations returned by the API into
+                GoogleMaps.</li>
+        </ul>
+        <p>
+            The application must persist the user's selected tab and relevant data (form inputs, search
+            results) across sessions. When the user closes and reopens the site, it should reopen on the
+            last active tab with its data restored.
+        </p>
+        
+        <h2>Requirements:</h2>
+        <ol>
+            <li>Implement the form using the latest features from Next.js.</li>
+            <li>Implement two switchable tabs within the same single-page application:
+                <ul>
+                    <li>- Verifier tab with a form to validate postcode, suburb, and state.</li>
+                    <li>- Source tab with a search field for suburbs/postcode and a list of matching results
+                        from the API.</li>
+                </ul>
+            </li>
+            <li>Integrate Apollo Client (or an equivalent library) to facilitate GraphQL interactions with
+                the Australia Post API <strong>(See Appendix A)</strong> through a GraphQL proxy.</li>
+            <li>Implement tab state persistence for both tabs so that:
+                <ul>
+                    <li>- If a user closes the browser and returns later, the previously active tab remains
+                        selected.</li>
+                    <li>- The data in that tab (search query/results) is restored.</li>
+                </ul>
+            </li>
+            <li>For the <strong>Source tab</strong>, we should be able to filter out locations based on their categories.</li>
+            <li>For the <strong>Source tab</strong>, when a location is selected/clicked from the list of results, display
+                the pinpointed selected location on Google maps.</li>
+            <li>For the <strong>Verifier tab</strong>, display the pinpointed location of the input on Google maps.</li>
+            <li>Store inputs and results from both the <strong>Verifier</strong> and <strong>Source tab</strong> into <strong>Elasticsearch</strong> for
+                logging.
+                <ul>
+                    <li>- Only store the logs of inputs and outputs for the selected location in the <strong>Source tab</strong>.</li>
+                </ul>
+            </li>
+            <li>Display the logs that were stored in <strong>Elasticsearch</strong> (requirement 8), you may proceed
+                with the implementation as you see fit.</li>
+        </ol>
+        
+        <h2>Tests to Pass</h2>
+        <div class="warning">
+            <h3>A. When using the Verifier tab</h3>
+            <ul>
+                <li>- Verify that the entered postcode aligns with the specified suburb. In the event of a
+                    mismatch, display an error message. E.g., "The postcode 2000 does not match the
+                    suburb Broadway".</li>
+                <li>- Confirm that the inputted suburb is consistent with the selected state. If there's a
+                    discrepancy, display an error. For instance: "The suburb Ferntree Gully does not exist in
+                    the state Tasmania (TAS)".</li>
+                <li>- If the postcode, suburb, and state align correctly, display the success message: "The
+                    postcode, suburb, and state input are valid."</li>
+            </ul>
+            
+            <p><strong>B. See Appendix B for more examples to try.</strong></p>
+            
+            <p><strong>C. When using the Source tab:</strong></p>
+            <ul>
+                <li>- If the inputted suburb name matches results from the API, display the list of matching
+                    suburbs.</li>
+                <li>- If there are no matching results, show a user-friendly message indicating that no
+                    matches were found (e.g., "No suburbs found for 'xyz'").</li>
+            </ul>
+            
+            <p><strong>D.</strong> Upon reloading the page, the previously selected tab should be selected, and the
+                previous search query and results (if any) should be restored.</p>
+            
+            <p><strong>E.</strong> Ensure that the inputs and single results from both the Verifier tab and the selected
+                inputs/results from the Source tab (as per requirement 8) are stored in Elasticsearch.</p>
+        </div>
+        
+        <h2>Presentation Component</h2>
+        <div class="warning">
+            <h3>Architecture Decisions - Scaling from MVP to Production</h3>
+            <p><strong>Duration:</strong> 20 minutes | <strong>Weight:</strong> 60% of total assessment</p>
+            
+            <p><strong>Overview:</strong> Present your technical solution to the Lawpath address validation application, focusing on architectural decisions and production readiness. This presentation should demonstrate your ability to think beyond implementation to real-world application challenges.</p>
+        </div>
+        
+        <h3>Required Content Areas</h3>
+        
+        <h4>1. Technical Decision Deep-Dive (6-8 minutes)</h4>
+        <ul>
+            <li>Walk through 3-5 key architectural decisions you made</li>
+            <li>Alternative approaches you considered and why you rejected them</li>
+            <li>Trade-offs between different implementation strategies</li>
+            <li>Most challenging technical problem and your solution approach</li>
+        </ul>
+        
+        <h4>2. Production Scaling Strategy (6-8 minutes)</h4>
+        <ul>
+            <li>Performance bottlenecks you identified and optimisation strategies</li>
+            <li>What you'd implement differently with more time/budget</li>
+            <li>Technical challenges that weren't obvious from the initial brief</li>
+            <li>Security considerations for a production environment</li>
+        </ul>
+        
+        <h4>3. Operational Excellence (4-6 minutes)</h4>
+        <ul>
+            <li>Monitoring and observability you'd add</li>
+            <li>Error handling strategies and user experience decisions</li>
+            <li>Testing approach for the integration points</li>
+            <li>Deployment and maintenance considerations</li>
+        </ul>
+        
+        <h3>Presentation Evaluation Criteria</h3>
+        <p><span class="arrow">➔</span> <strong>Technical Depth:</strong> Understanding of architectural implications</p>
+        <p><span class="arrow">➔</span> <strong>Problem-Solving:</strong> Ability to identify and address complex challenges</p>
+        <p><span class="arrow">➔</span> <strong>Communication:</strong> Clear explanation of technical concepts</p>
+        <p><span class="arrow">➔</span> <strong>Strategic Thinking:</strong> Vision for scaling beyond the MVP</p>
+        <p><span class="arrow">➔</span> <strong>Self-Awareness:</strong> Honest assessment of current limitations and improvements</p>
+        
+        <h3>Presentation Deliverables</h3>
+        <ul>
+            <li>Live presentation with slides</li>
+            <li>Be prepared to show specific code examples</li>
+            <li>Q&A session following presentation</li>
+        </ul>
+        
+        <h2>Submission Instructions</h2>
+        <ol>
+            <li><strong>Code Repository:</strong> Commit your project to a GitHub repository.</li>
+            <li><strong>Documentation:</strong> The README of your repository should contain comprehensive instructions for
+                initializing and running the project on a local machine.</li>
+            <li><strong>Presentation:</strong> Prepare a 20-minute presentation as outlined above.</li>
+        </ol>
+        
+        <h2>Overall Evaluation Criteria</h2>
+        
+        <h3>Technical Implementation (40%)</h3>
+        <p><span class="arrow">➔</span> Proficiency in developing applications using Next.js and React.</p>
+        <p><span class="arrow">➔</span> Ability to work with a GraphQL endpoint, particularly in proxying external REST APIs.</p>
+        <p><span class="arrow">➔</span> Skill in constructing user-centric web forms.</p>
+        <p><span class="arrow">➔</span> Expertise in HTML5/CSS(or an equivalent framework like Tailwind)/Typescript.</p>
+        <p><span class="arrow">➔</span> Ability to manage state persistence across sessions.</p>
+        <p><span class="arrow">➔</span> Attention to user experience and feedback handling.</p>
+        <p><span class="arrow">➔</span> Familiarity with Git and its best practices.</p>
+        <p><span class="arrow">➔</span> Ability to work with Elasticsearch for search and data storage.</p>
+        
+        <h3>Presentation & Architecture (60%)</h3>
+        <p>See Presentation Component section above for detailed evaluation criteria.</p>
+        
+        <h2>Appendix A (Details of the API)</h2>
+        <div class="key-outcome">
+            <p><strong>Australia post base URL:</strong><br>
+            <code>https://gavg8gilmf.execute-api.ap-southeast-2.amazonaws.com/staging/postcode/search.json</code></p>
+            
+            <p><strong>Australia post authentication:</strong> Bearer Token <code>7710a8c5-ccd1-160f-70cf03e8-b2bbaf01</code></p>
+            
+            <h3>Headers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>Bearer 7710a8c5-ccd1-160f-70cf03e8-b2bbaf01</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>q</td>
+                        <td>The search criteria (location name or postcode)</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>Filter for specific state (e.g., VIC)</td>
+                        <td>No</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4>GET</h4>
+            <code>https://gavg8gilmf.execute-api.ap-southeast-2.amazonaws.com/staging/postcode/search.json?q=Melbourne&state=VIC</code>
+            
+            <h4>Example response:</h4>
+            <pre><code>{
+  "localities": {
+    "locality": [
+      {
+        "category": "Delivery Area",
+        "id": 5532,
+        "latitude": -37.81664,
+        "location": "EAST MELBOURNE",
+        "longitude": 144.987811,
+        "postcode": 3002,
+        "state": "VIC"
+      }
+    ]
+  }
+}</code></pre>
+        </div>
+        
+        <h2>Elasticsearch credentials</h2>
+        <div class="key-outcome">
+            <p><strong>Elasticsearch api key:</strong><br>
+            <code>VE9XcHhKZ0J4OExRWE1hZ0luMmI6amloV1pGWnFDVzJYWGRQVW92RjJ3UQ==</code></p>
+            
+            <div class="warning" style="margin-top: 15px;">
+                <p><strong>Important:</strong> Create your own index using the format: <code>&lt;firstname&gt;-&lt;lastname&gt;-index</code></p>
+                <p>For example, if your name is John Smith, your index should be: <code>john-smith-index</code></p>
+            </div>
+            
+            <pre><code>const { Client } = require('@elastic/elasticsearch');
+const client = new Client({
+  node: 'https://lawpath-test-cluster-aba117.es.ap-southeast-1.aws.elastic.cloud:443',
+  auth: {
+    apiKey: 'YOUR_API_KEY'
+  },
+  serverMode: 'serverless',
+});
+
+// Replace with your actual firstname and lastname
+const index = '&lt;firstname&gt;-&lt;lastname&gt;-index';
+const mapping = {
+  "text": {
+    "type": "semantic_text"
+  }
+};
+
+const updateMappingResponse = await client.indices.putMapping({
+  index,
+  properties: mapping,
+});
+console.log(updateMappingResponse);</code></pre>
+        </div>
+        
+        <div class="success-criteria">
+            <p><strong>Note:</strong> Don't hesitate to showcase your strengths in areas such as unit tests, documentation, or design
+            through your code.</p>
+        </div>
+        
+        <h2>Appendix B (Examples to test)</h2>
+        <div class="repo-structure">
+            <table>
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Suburb</th>
+                        <th>Postcode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>VIC</td>
+                        <td>Melbourne</td>
+                        <td>3000</td>
+                    </tr>
+                    <tr>
+                        <td>VIC</td>
+                        <td>Ferntree Gully</td>
+                        <td>3156</td>
+                    </tr>
+                    <tr>
+                        <td>QLD</td>
+                        <td>Brisbane</td>
+                        <td>4000</td>
+                    </tr>
+                    <tr>
+                        <td>QLD</td>
+                        <td>Noosa Heads</td>
+                        <td>4567</td>
+                    </tr>
+                    <tr>
+                        <td>NSW</td>
+                        <td>Broadway</td>
+                        <td>2007</td>
+                    </tr>
+                    <tr>
+                        <td>NSW</td>
+                        <td>Surry Hills</td>
+                        <td>2010</td>
+                    </tr>
+                    <tr>
+                        <td>WA</td>
+                        <td>Perth</td>
+                        <td>6000</td>
+                    </tr>
+                    <tr>
+                        <td>WA</td>
+                        <td>Fremantle</td>
+                        <td>6163</td>
+                    </tr>
+                    <tr>
+                        <td>SA</td>
+                        <td>Adelaide</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <td>SA</td>
+                        <td>Whyalla</td>
+                        <td>5600</td>
+                    </tr>
+                    <tr>
+                        <td>TAS</td>
+                        <td>Hobart</td>
+                        <td>7000</td>
+                    </tr>
+                    <tr>
+                        <td>TAS</td>
+                        <td>Launceston</td>
+                        <td>7250</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="success-criteria">
+            <p><strong>Final Submission Checklist:</strong></p>
+            <p>✓ Working Next.js application with both Verifier and Source tabs</p>
+            <p>✓ GraphQL proxy implementation for Australia Post API</p>
+            <p>✓ Elasticsearch integration for logging</p>
+            <p>✓ Google Maps integration</p>
+            <p>✓ State persistence across sessions</p>
+            <p>✓ GitHub repository with comprehensive README</p>
+            <p>✓ 20-minute presentation prepared with slides</p>
+            <p>✓ Code examples ready for demonstration</p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Good luck. Show us your ability to build modern, scalable web applications and communicate technical decisions effectively.</strong></p>
+            <p><em>Lawpath Engineering Team</em></p>
+        </div>
+    </div>
+</body>
+</html>
