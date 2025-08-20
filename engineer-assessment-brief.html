@@ -244,8 +244,8 @@
             <li>Implement the form using the latest features from Next.js.</li>
             <li>Implement two switchable tabs within the same single-page application:
                 <ul>
-                    <li>- Verifier tab with a form to validate postcode, suburb, and state.</li>
-                    <li>- Source tab with a search field for suburbs/postcode and a list of matching results
+                    <li>Verifier tab with a form to validate postcode, suburb, and state.</li>
+                    <li>Source tab with a search field for suburbs/postcode and a list of matching results
                         from the API.</li>
                 </ul>
             </li>
@@ -253,9 +253,9 @@
                 the Australia Post API <strong>(See Appendix A)</strong> through a GraphQL proxy.</li>
             <li>Implement tab state persistence for both tabs so that:
                 <ul>
-                    <li>- If a user closes the browser and returns later, the previously active tab remains
+                    <li>If a user closes the browser and returns later, the previously active tab remains
                         selected.</li>
-                    <li>- The data in that tab (search query/results) is restored.</li>
+                    <li>The data in that tab (search query/results) is restored.</li>
                 </ul>
             </li>
             <li>For the <strong>Source tab</strong>, we should be able to filter out locations based on their categories.</li>
@@ -265,7 +265,7 @@
             <li>Store inputs and results from both the <strong>Verifier</strong> and <strong>Source tab</strong> into <strong>Elasticsearch</strong> for
                 logging.
                 <ul>
-                    <li>- Only store the logs of inputs and outputs for the selected location in the <strong>Source tab</strong>.</li>
+                    <li>Only store the logs of inputs and outputs for the selected location in the <strong>Source tab</strong>.</li>
                 </ul>
             </li>
             <li>Display the logs that were stored in <strong>Elasticsearch</strong> (requirement 8), you may proceed
@@ -276,13 +276,13 @@
         <div class="warning">
             <h3>A. When using the Verifier tab</h3>
             <ul>
-                <li>- Verify that the entered postcode aligns with the specified suburb. In the event of a
+                <li>Verify that the entered postcode aligns with the specified suburb. In the event of a
                     mismatch, display an error message. E.g., "The postcode 2000 does not match the
                     suburb Broadway".</li>
-                <li>- Confirm that the inputted suburb is consistent with the selected state. If there's a
+                <li>Confirm that the inputted suburb is consistent with the selected state. If there's a
                     discrepancy, display an error. For instance: "The suburb Ferntree Gully does not exist in
                     the state Tasmania (TAS)".</li>
-                <li>- If the postcode, suburb, and state align correctly, display the success message: "The
+                <li>If the postcode, suburb, and state align correctly, display the success message: "The
                     postcode, suburb, and state input are valid."</li>
             </ul>
             
@@ -290,9 +290,9 @@
             
             <p><strong>C. When using the Source tab:</strong></p>
             <ul>
-                <li>- If the inputted suburb name matches results from the API, display the list of matching
+                <li>If the inputted suburb name matches results from the API, display the list of matching
                     suburbs.</li>
-                <li>- If there are no matching results, show a user-friendly message indicating that no
+                <li>If there are no matching results, show a user-friendly message indicating that no
                     matches were found (e.g., "No suburbs found for 'xyz'").</li>
             </ul>
             
