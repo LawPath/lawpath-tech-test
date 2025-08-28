@@ -198,7 +198,7 @@
     <h1>Technical Lead Assessment Briefing</h1>
     <div class="subtitle"><strong>Lawpath Engineering</strong></div>
     <h2>Executive Summary</h2>
-    <p>You are being assessed for the Technical Lead position at Lawpath. This assessment requires approximately 5 hours of focused work and evaluates your ability to design scalable architectures, make strategic technical decisions, and communicate effectively with both technical and non-technical stakeholders.</p>
+    <p>You are being assessed for the Technical Lead position at Lawpath. This assessment requires approximately 8 hours of focused work and evaluates your ability to design scalable architectures, make strategic technical decisions, and communicate effectively with both technical and non-technical stakeholders.</p>
     
     <div class="key-outcome">
         <strong>Key Outcome:</strong> Demonstrate you can architect and specify a production-ready AI system that scales to 10 million events per day.
@@ -208,7 +208,7 @@
 
     <h3>Duration & Structure</h3>
     <ul>
-        <li><strong>Expected Time:</strong> 5 hours of focused work</li>
+        <li><strong>Expected Time:</strong> 8 hours of focused work</li>
         <li><strong>Submission Deadline:</strong> 1 week from receipt</li>
         <li><strong>Format:</strong> Take-home technical assessment</li>
         <li><strong>Submission:</strong> Via GitHub repository</li>
@@ -257,7 +257,7 @@
             </tr>
             <tr>
                 <td><strong>Runtime</strong></td>
-                <td>AWS Lambda (Node.js 18+)</td>
+                <td>AWS Lambda (Node.js)</td>
                 <td>Full handler code needed</td>
             </tr>
             <tr>
@@ -267,7 +267,7 @@
             </tr>
             <tr>
                 <td><strong>Core AWS Services</strong></td>
-                <td>API Gateway, Lambda, SNS, DynamoDB, S3</td>
+                <td>API Gateway, Lambda, SNS, DynamoDB</td>
                 <td>Via LocalStack or AWS</td>
             </tr>
         </tbody>
@@ -299,7 +299,6 @@
         <li><strong>SNS → Multiple Worker Lambdas (Fan-out):</strong>
             <ul>
                 <li><strong>DynamoDB Worker:</strong> Stores event metadata for fast queries</li>
-                <li><strong>S3 Worker:</strong> Archives raw events for compliance and audit</li>
                 <li><strong>Vector Index Worker:</strong> Generates embeddings and indexes in vector database</li>
             </ul>
         </li>
@@ -337,12 +336,12 @@
     <h3>System Design Requirements</h3>
     <p>The architecture must be designed to scale to 10 million events per day with complete multi-tenant data isolation between companies. Implement event sourcing with S3 as the immutable event store and ensure high availability through fault-tolerant design with fallback strategies.</p>
 
-    <p>Multi-tenancy must be enforced at every layer with companyId-based partitioning in DynamoDB, S3 prefix isolation per company, and vector database namespaces or metadata filtering.</p>
+    <p>Multi-tenancy must be enforced at every layer with companyId-based partitioning in DynamoDB and vector database namespaces or metadata filtering.</p>
 
     <div class="page-break"></div>
 
     <h3>Infrastructure as Code Specifications</h3>
-    <p>Your Serverless Framework configuration must include Lambda function definitions (Event Ingestion, DynamoDB Worker, S3 Worker, Vector Index Worker, Recommendation Service), SNS topics with subscriptions, DynamoDB tables, S3 buckets, API Gateway endpoints, and IAM roles.</p>
+    <p>Your Serverless Framework configuration must include Lambda function definitions (Event Ingestion, DynamoDB Worker, Vector Index Worker, Recommendation Service), SNS topics with subscriptions, DynamoDB tables, API Gateway endpoints, and IAM roles.</p>
 
     <p>The LocalStack configuration must specify all required AWS services, proper endpoint configuration for local development, Lambda executor settings for Docker-based execution, and volume mounts for data persistence across restarts.</p>
 
@@ -381,7 +380,7 @@
     <p>Your implementation must include:</p>
     <ul>
         <li><strong>Docker Compose:</strong> Complete configuration for LocalStack and Vector DB</li>
-        <li><strong>Lambda Functions:</strong> Event ingestion, workers (DynamoDB, S3, Vector), and recommendation service</li>
+        <li><strong>Lambda Functions:</strong> Event ingestion, workers (DynamoDB, Vector), and recommendation service</li>
         <li><strong>Infrastructure Code:</strong> Serverless Framework or Terraform configuration</li>
         <li><strong>One-Command Runner:</strong> A single command/script that sets up and validates the entire system (e.g., <code>make run</code>, <code>./run.sh</code>, <code>docker-compose up --build</code>, etc.)</li>
         <li><strong>Data Loader:</strong> Script to load and index the sample events</li>
@@ -390,7 +389,7 @@
     <h3>2. Architecture Documentation (25% of grade)</h3>
     <p>Provide a system diagram showing the complete 5-step data flow with all components and their interactions. Include a technical decisions document (2 pages maximum) explaining your technology choices, trade-offs between different approaches, scalability considerations, and cost optimisation strategies.</p>
 
-    <p>Document the Docker networking architecture showing how containers communicate, the event-driven architecture with SNS fan-out pattern, data storage strategy across DynamoDB, S3, and vector database, and security boundaries with IAM roles and policies.</p>
+    <p>Document the Docker networking architecture showing how containers communicate, the event-driven architecture with SNS fan-out pattern, data storage strategy across DynamoDB and vector database, and security boundaries with IAM roles and policies.</p>
 
     <h3>3. Product Impact Analysis (15% of grade)</h3>
     <p>Define success metrics including recommendation accuracy, system performance KPIs, user engagement metrics, and business value indicators. Describe your A/B testing approach for validating recommendation quality and iterating on the model.</p>
@@ -485,7 +484,7 @@ python run.py                # Python orchestrator</code></pre>
         <li>Display clear success/failure output</li>
     </ol>
 
-    <p>The validation will verify that events flow through SNS to all workers, data is correctly stored in all three storage layers, vector search returns relevant recommendations, response times meet requirements, and the system handles concurrent requests.</p>
+    <p>The validation will verify that events flow through SNS to all workers, data is correctly stored in all storage layers, vector search returns relevant recommendations, response times meet requirements, and the system handles concurrent requests.</p>
     
     <h3>Test Flow A: Event Ingestion</h3>
     <pre><code>// POST /events
@@ -504,7 +503,6 @@ python run.py                # Python orchestrator</code></pre>
 // Verify (asynchronously):
 ✓ SNS message published
 ✓ DynamoDB Worker executed
-✓ S3 Worker executed  
 ✓ Vector Index Worker executed
 ✓ All data stores updated</code></pre>
 
@@ -515,16 +513,10 @@ python run.py                # Python orchestrator</code></pre>
 ✓ Returns 5 recommendations
 ✓ Sorted by relevance score
 ✓ Includes confidence levels
-✓ Response time < 200ms
-✓ Uses cached results if available</code></pre>
-
-    <h2>Common Pitfalls to Avoid</h2>
-    <p>Ensure LocalStack runs in a Docker container rather than pip installation, as Lambda execution requires Docker-based LocalStack. Configure networking properly so Lambda functions can reach both LocalStack services and the vector database. Use container names for service discovery rather than localhost or IP addresses.</p>
-
-    <p>Write clean, maintainable code with proper error handling. Use environment variables for configuration. Implement proper logging for debugging. Include retry logic for transient failures. Test your solution thoroughly before submission.</p>
+✓ Response time < 200ms</code></pre>
 
     <h2>Time Management Guidance</h2>
-    <p><em>Suggested allocation for the 5 hours of work:</em></p>
+    <p><em>Suggested allocation for the 8 hours of work:</em></p>
     <table>
         <thead>
             <tr>
@@ -536,17 +528,17 @@ python run.py                # Python orchestrator</code></pre>
         <tbody>
             <tr>
                 <td><strong>Architecture Design</strong></td>
-                <td>60 min</td>
+                <td>90 min</td>
                 <td>Data flow, Docker setup, system design</td>
             </tr>
             <tr>
                 <td><strong>Implementation</strong></td>
-                <td>180 min</td>
+                <td>300 min</td>
                 <td>Lambda functions, infrastructure code, Docker compose</td>
             </tr>
             <tr>
                 <td><strong>Testing & Documentation</strong></td>
-                <td>60 min</td>
+                <td>90 min</td>
                 <td>Test scripts, documentation, diagrams</td>
             </tr>
         </tbody>
@@ -562,7 +554,6 @@ python run.py                # Python orchestrator</code></pre>
 ├── lambdas/<br>
 │   ├── event-ingestion/<br>
 │   ├── dynamo-worker/<br>
-│   ├── s3-worker/<br>
 │   ├── vector-worker/<br>
 │   └── recommendation/<br>
 ├── scripts/<br>
@@ -586,11 +577,11 @@ python run.py                # Python orchestrator</code></pre>
     <h2>Final Notes</h2>
     <p>We seek technical leaders who can build production-ready systems using modern cloud-native patterns. Your implementation should demonstrate clean architecture, proper error handling, and scalable design patterns.</p>
 
-    <p>Remember: You're building a containerised, event-driven recommendation system that can be validated with a single shell script. Focus on working code, clean abstractions, and production-ready patterns. You have one week to complete this assessment, with an expected time investment of 5 hours.</p>
+    <p>Remember: You're building a containerised, event-driven recommendation system that can be validated with a single shell script. Focus on working code, clean abstractions, and production-ready patterns. You have one week to complete this assessment, with an expected time investment of 8 hours.</p>
 
     <div class="success-criteria">
         <p><strong>Submission Deadline:</strong> 1 week from receipt of assessment</p>
-        <p><strong>Expected Time Investment:</strong> 5 hours</p>
+        <p><strong>Expected Time Investment:</strong> 8 hours</p>
         <p><strong>Format:</strong> GitHub repository link</p>
         <p><strong>Optional:</strong> 5-minute Loom video walkthrough</p>
     </div>
