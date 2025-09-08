@@ -222,23 +222,18 @@
 
     <h2>Description</h2>
         <p>
-            Create a single-page application using only Next.js with authentication and two interactive tabs: a <strong>Verifier</strong> tab and
-            a <strong>Log</strong> tab
+            Create a single-page application using only Next.js with authentication and a <strong>Verifier</strong> tab.
         </p>
         <ul>
-            <li>The application should require <strong>user authentication</strong> before accessing the Verifier and Log tabs.
+            <li>The application should require <strong>user authentication</strong> before accessing the Verifier tab.
                 Implement a simple login/registration system that stores user credentials in Elasticsearch or use a basic auth strategy.</li>
             <li>The <strong>Verifier tab</strong> should contain a form that captures a postcode, suburb, and state.
                 Upon submission, the form must query the Australia Post API through a GraphQL proxy
                 to confirm the validity of the entered address.</li>
-            <li>The <strong>Log tab</strong> should display a history of all verification attempts made in the Verifier tab,
-                showing the inputs (postcode, suburb, state), timestamp, and validation result (success/failure with error message)
-                retrieved from Elasticsearch.</li>
         </ul>
         <p>
-            The application must persist the user's selected tab and relevant data across sessions. 
-            When the user closes and reopens the site, it should reopen on the
-            last active tab with its data restored.
+            The application must persist the user's data across sessions. 
+            When the user closes and reopens the site, the form data should be restored.
         </p>
         
         <h2>Requirements:</h2>
@@ -253,22 +248,12 @@
                 </ul>
             </li>
             <li>Implement the form using the latest features from Next.js.</li>
-            <li>Implement two switchable tabs within the same single-page application:
-                <ul>
-                    <li>Verifier tab with a form to validate postcode, suburb, and state.</li>
-                    <li>Log tab displaying all verification attempts with inputs, timestamps, and results.</li>
-                </ul>
-            </li>
+            <li>Implement the Verifier tab with a form to validate postcode, suburb, and state.</li>
             <li>Integrate Apollo Client (or an equivalent library) to facilitate GraphQL interactions with
                 the Australia Post API <strong>(See Appendix A)</strong> through a GraphQL proxy.</li>
-            <li>Implement tab state persistence for both tabs so that:
-                <ul>
-                    <li>If a user closes the browser and returns later, the previously active tab remains
-                        selected.</li>
-                    <li>The data in that tab is restored.</li>
-                </ul>
-            </li>
-            <li>Store all verification attempts from the <strong>Verifier tab</strong> into <strong>Elasticsearch</strong> for
+            <li>Implement state persistence so that if a user closes the browser and returns later, 
+                the form data is restored.</li>
+            <li>Store all verification attempts into <strong>Elasticsearch</strong> for
                 logging, including:
                 <ul>
                     <li>User ID or username of the logged-in user</li>
@@ -278,19 +263,14 @@
                     <li>Error message if validation failed</li>
                 </ul>
             </li>
-            <li>The <strong>Log tab</strong> should retrieve and display all stored verification attempts from <strong>Elasticsearch</strong>,
-                showing them in a user-friendly format (e.g., table or list view) with appropriate filtering/sorting options.
-                <ul>
-                    <li><strong>Nice to have (Bonus):</strong> Google Maps integration - clicking on successful verifications displays the location on a map</li>
-                </ul>
-            </li>
+            <li><strong>Nice to have (Bonus):</strong> Google Maps integration - display the location on a map when validation is successful.</li>
         </ol>
         
         <h2>Tests to Pass</h2>
         <div class="warning">
             <p><strong>A. Authentication - Demonstrate understanding of secure auth practices</strong></p>
             <ul>
-                <li>Users cannot access Verifier or Log tabs without logging in (protected routes)</li>
+                <li>Users cannot access the Verifier tab without logging in (protected routes)</li>
                 <li>Passwords are properly hashed (not stored in plain text)</li>
                 <li>Successful login redirects to the main application with proper session creation</li>
                 <li>User session persists across page refreshes (token/session management)</li>
@@ -312,19 +292,11 @@
             
             <p><strong>C.</strong> See Appendix B for more examples to try.</p>
             
-            <p><strong>D. When using the Log tab:</strong></p>
-            <ul>
-                <li>Display all verification attempts from the Verifier tab in chronological order.</li>
-                <li>Show each attempt with its inputs, timestamp, and validation result.</li>
-                <li>If there are no logs yet, show a message like "No verification attempts yet".</li>
-                <li>(Bonus) Clicking on a successful verification should display the location on Google Maps.</li>
-            </ul>
+            <p><strong>D.</strong> Upon reloading the page, the user should remain logged in (if previously logged in),
+                and the form data should be restored.</p>
             
-            <p><strong>E.</strong> Upon reloading the page, the user should remain logged in (if previously logged in),
-                the previously selected tab should be selected, and the previous data should be restored.</p>
-            
-            <p><strong>F.</strong> Ensure that all verification attempts from the Verifier tab are stored in Elasticsearch
-                with the user ID and can be retrieved and displayed in the Log tab.</p>
+            <p><strong>E.</strong> Ensure that all verification attempts are stored in Elasticsearch
+                with the user ID for logging purposes.</p>
         </div>
         
         <h2>Presentation Component (60% of Assessment)</h2>
@@ -370,7 +342,7 @@
         <h2>Submission Requirements</h2>
         <div class="success-criteria">
             <p><strong>Required Deliverables (Due 1 week from receipt):</strong></p>
-            <p>✓ <strong>Working Next.js application</strong> with authentication, Verifier and Log tabs</p>
+            <p>✓ <strong>Working Next.js application</strong> with authentication and Verifier functionality</p>
             <p>✓ <strong>Authentication system</strong> demonstrating secure auth implementation (password hashing, session management, protected routes)</p>
             <p>✓ <strong>GitHub repository</strong> with your complete project code</p>
             <p>✓ <strong>Deployed solution on Vercel</strong> with live URL</p>
