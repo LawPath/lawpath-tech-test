@@ -217,36 +217,46 @@
         <p>• <strong>Presentation & Architecture Discussion:</strong> 60% of total assessment</p>
         <p>• <strong>Expected Time Investment:</strong> 1-2 days for implementation + presentation preparation</p>
         <p>• <strong>Submission Deadline:</strong> 1 week from receipt</p>
+        <p>• <strong>AI Assistance:</strong> You are welcome to use AI tools to help complete this assessment</p>
     </div>
 
     <h2>Description</h2>
         <p>
-            Create a single-page application using only Next.js with two interactive tabs: a <strong>Verifier</strong> tab and
-            a <strong>Source</strong> tab
+            Create a single-page application using only Next.js with authentication and two interactive tabs: a <strong>Verifier</strong> tab and
+            a <strong>Log</strong> tab
         </p>
         <ul>
+            <li>The application should require <strong>user authentication</strong> before accessing the Verifier and Log tabs.
+                Implement a simple login/registration system that stores user credentials in Elasticsearch or use a basic auth strategy.</li>
             <li>The <strong>Verifier tab</strong> should contain a form that captures a postcode, suburb, and state.
                 Upon submission, the form must query the Australia Post API through a GraphQL proxy
                 to confirm the validity of the entered address.</li>
-            <li>The <strong>Source tab</strong> should provide an interface to search for locations within a suburb or
-                postcode. When the user enters a suburb/postcode, the application must query the
-                same GraphQL proxy and display a selectable list of locations returned by the API into
-                GoogleMaps.</li>
+            <li>The <strong>Log tab</strong> should display a history of all verification attempts made in the Verifier tab,
+                showing the inputs (postcode, suburb, state), timestamp, and validation result (success/failure with error message)
+                retrieved from Elasticsearch.</li>
         </ul>
         <p>
-            The application must persist the user's selected tab and relevant data (form inputs, search
-            results) across sessions. When the user closes and reopens the site, it should reopen on the
+            The application must persist the user's selected tab and relevant data across sessions. 
+            When the user closes and reopens the site, it should reopen on the
             last active tab with its data restored.
         </p>
         
         <h2>Requirements:</h2>
+        <p><strong>Required Features:</strong></p>
         <ol>
+            <li>Implement a simple authentication system:
+                <ul>
+                    <li>Users must login before accessing Verifier and Log tabs</li>
+                    <li>Support user registration and login</li>
+                    <li>Store user credentials in Elasticsearch (create a users index) or implement a basic auth strategy</li>
+                    <li>Maintain session state after login</li>
+                </ul>
+            </li>
             <li>Implement the form using the latest features from Next.js.</li>
             <li>Implement two switchable tabs within the same single-page application:
                 <ul>
                     <li>Verifier tab with a form to validate postcode, suburb, and state.</li>
-                    <li>Source tab with a search field for suburbs/postcode and a list of matching results
-                        from the API.</li>
+                    <li>Log tab displaying all verification attempts with inputs, timestamps, and results.</li>
                 </ul>
             </li>
             <li>Integrate Apollo Client (or an equivalent library) to facilitate GraphQL interactions with
@@ -255,29 +265,40 @@
                 <ul>
                     <li>If a user closes the browser and returns later, the previously active tab remains
                         selected.</li>
-                    <li>The data in that tab (search query/results) is restored.</li>
+                    <li>The data in that tab is restored.</li>
                 </ul>
             </li>
-            <li>For the <strong>Source tab</strong>, we should be able to filter out locations based on their categories.</li>
-            <li>Display locations on Google Maps:
+            <li>Store all verification attempts from the <strong>Verifier tab</strong> into <strong>Elasticsearch</strong> for
+                logging, including:
                 <ul>
-                    <li>For the <strong>Source tab</strong>: Show pinpointed location when selected from results</li>
-                    <li>For the <strong>Verifier tab</strong>: Show pinpointed location based on input</li>
+                    <li>User ID or username of the logged-in user</li>
+                    <li>Input data (postcode, suburb, state)</li>
+                    <li>Timestamp of the attempt</li>
+                    <li>Validation result (success/failure)</li>
+                    <li>Error message if validation failed</li>
                 </ul>
             </li>
-            <li>Store inputs and results from both the <strong>Verifier</strong> and <strong>Source tab</strong> into <strong>Elasticsearch</strong> for
-                logging.
+            <li>The <strong>Log tab</strong> should retrieve and display all stored verification attempts from <strong>Elasticsearch</strong>,
+                showing them in a user-friendly format (e.g., table or list view) with appropriate filtering/sorting options.
                 <ul>
-                    <li>Only store the logs of inputs and outputs for the selected location in the <strong>Source tab</strong>.</li>
+                    <li><strong>Nice to have (Bonus):</strong> Google Maps integration - clicking on successful verifications displays the location on a map</li>
                 </ul>
             </li>
-            <li>Display the logs that were stored in <strong>Elasticsearch</strong> (requirement 8), you may proceed
-                with the implementation as you see fit.</li>
         </ol>
         
         <h2>Tests to Pass</h2>
         <div class="warning">
-            <h3>A. When using the Verifier tab</h3>
+            <p><strong>A. Authentication - Demonstrate understanding of secure auth practices</strong></p>
+            <ul>
+                <li>Users cannot access Verifier or Log tabs without logging in (protected routes)</li>
+                <li>Passwords are properly hashed (not stored in plain text)</li>
+                <li>Successful login redirects to the main application with proper session creation</li>
+                <li>User session persists across page refreshes (token/session management)</li>
+                <li>Logout functionality properly clears session/tokens</li>
+                <li>Handle auth errors gracefully (invalid credentials, session expiry)</li>
+            </ul>
+            
+            <p><strong>B. When using the Verifier tab</strong></p>
             <ul>
                 <li>Verify that the entered postcode aligns with the specified suburb. In the event of a
                     mismatch, display an error message. E.g., "The postcode 2000 does not match the
@@ -289,21 +310,21 @@
                     postcode, suburb, and state input are valid."</li>
             </ul>
             
-            <p><strong>B. See Appendix B for more examples to try.</strong></p>
+            <p><strong>C.</strong> See Appendix B for more examples to try.</p>
             
-            <p><strong>C. When using the Source tab:</strong></p>
+            <p><strong>D. When using the Log tab:</strong></p>
             <ul>
-                <li>If the inputted suburb name matches results from the API, display the list of matching
-                    suburbs.</li>
-                <li>If there are no matching results, show a user-friendly message indicating that no
-                    matches were found (e.g., "No suburbs found for 'xyz'").</li>
+                <li>Display all verification attempts from the Verifier tab in chronological order.</li>
+                <li>Show each attempt with its inputs, timestamp, and validation result.</li>
+                <li>If there are no logs yet, show a message like "No verification attempts yet".</li>
+                <li>(Bonus) Clicking on a successful verification should display the location on Google Maps.</li>
             </ul>
             
-            <p><strong>D.</strong> Upon reloading the page, the previously selected tab should be selected, and the
-                previous search query and results (if any) should be restored.</p>
+            <p><strong>E.</strong> Upon reloading the page, the user should remain logged in (if previously logged in),
+                the previously selected tab should be selected, and the previous data should be restored.</p>
             
-            <p><strong>E.</strong> Ensure that the inputs and single results from both the Verifier tab and the selected
-                inputs/results from the Source tab (as per requirement 8) are stored in Elasticsearch.</p>
+            <p><strong>F.</strong> Ensure that all verification attempts from the Verifier tab are stored in Elasticsearch
+                with the user ID and can be retrieved and displayed in the Log tab.</p>
         </div>
         
         <h2>Presentation Component (60% of Assessment)</h2>
@@ -349,7 +370,8 @@
         <h2>Submission Requirements</h2>
         <div class="success-criteria">
             <p><strong>Required Deliverables (Due 1 week from receipt):</strong></p>
-            <p>✓ <strong>Working Next.js application</strong> with both Verifier and Source tabs</p>
+            <p>✓ <strong>Working Next.js application</strong> with authentication, Verifier and Log tabs</p>
+            <p>✓ <strong>Authentication system</strong> demonstrating secure auth implementation (password hashing, session management, protected routes)</p>
             <p>✓ <strong>GitHub repository</strong> with your complete project code</p>
             <p>✓ <strong>Deployed solution on Vercel</strong> with live URL</p>
             <p>✓ <strong>Comprehensive README</strong> containing:</p>
@@ -360,7 +382,7 @@
             </ul>
             <p>✓ <strong>GraphQL proxy implementation</strong> for Australia Post API</p>
             <p>✓ <strong>Elasticsearch integration</strong> for logging</p>
-            <p>✓ <strong>Google Maps integration</strong> for location visualization</p>
+            <p>✓ <strong>Google Maps integration</strong> for location visualisation (bonus feature)</p>
             <p>✓ <strong>State persistence</strong> across browser sessions</p>
             <p>✓ <strong>Presentation ready</strong> with slides and code examples for demonstration</p>
         </div>
@@ -376,6 +398,7 @@
         <p><span class="arrow">➔</span> Attention to user experience and feedback handling.</p>
         <p><span class="arrow">➔</span> Familiarity with Git and its best practices.</p>
         <p><span class="arrow">➔</span> Ability to work with Elasticsearch for search and data storage.</p>
+        <p><span class="arrow">➔</span> Understanding of authentication best practices (password security, session management, route protection).</p>
         
         <h3>Presentation & Architecture (60%)</h3>
         <p><span class="arrow">➔</span> Technical Depth: Understanding of architectural implications</p>
@@ -477,8 +500,12 @@
             <code>VE9XcHhKZ0J4OExRWE1hZ0luMmI6amloV1pGWnFDVzJYWGRQVW92RjJ3UQ==</code></p>
             
             <div class="warning" style="margin-top: 15px;">
-                <p><strong>Important:</strong> Create your own index using the format: <code>&lt;firstname&gt;-&lt;lastname&gt;-index</code></p>
-                <p>For example, if your name is John Smith, your index should be: <code>john-smith-index</code></p>
+                <p><strong>Important:</strong> Create your own indices using the format: <code>&lt;firstname&gt;-&lt;lastname&gt;-index</code></p>
+                <p>For example, if your name is John Smith:</p>
+                <ul>
+                    <li>Logs index: <code>john-smith-index</code></li>
+                    <li>Users index (if using Elasticsearch for auth): <code>john-smith-users</code></li>
+                </ul>
             </div>
             
             <pre><code>const { Client } = require('@elastic/elasticsearch');
@@ -507,7 +534,7 @@ console.log(updateMappingResponse);</code></pre>
         
         <div class="success-criteria">
             <p><strong>Note:</strong> Don't hesitate to showcase your strengths in areas such as unit tests, documentation, or design
-            through your code.</p>
+            through your code. You are welcome to use AI assistance as needed to complete this assessment.</p>
         </div>
         
         <h2>Appendix B (Examples to test)</h2>
