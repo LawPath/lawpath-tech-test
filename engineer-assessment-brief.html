@@ -227,7 +227,7 @@
         <ul>
             <li>The application should require <strong>user authentication</strong> before accessing the Verifier form.
                 Implement a simple login/registration system that stores user credentials in Elasticsearch or use a basic auth strategy.</li>
-            <li>The <strong>Verifier tab</strong> should contain a form that captures a postcode, suburb, and state.
+            <li>The <strong>Verification form</strong> should capture a postcode, suburb, and state.
                 Upon submission, the form must query the Australia Post API through a GraphQL proxy
                 to confirm the validity of the entered address.</li>
         </ul>
@@ -241,7 +241,7 @@
         <ol>
             <li>Implement a simple authentication system:
                 <ul>
-                    <li>Users must login before accessing the Verifier tab</li>
+                    <li>Users must login before accessing the Verification form</li>
                     <li>Support user registration and login</li>
                     <li>Store user credentials in Elasticsearch (create a users index) or implement a basic auth strategy</li>
                     <li>Maintain session state after login</li>
