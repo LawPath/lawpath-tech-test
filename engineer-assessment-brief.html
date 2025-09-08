@@ -202,7 +202,7 @@
         <img src="logo.png" alt="Lawpath Logo" class="logo">
     </div>
     <h1>Engineer Assessment Briefing</h1>
-    <div class="subtitle"><strong>Lawpath Engineering - Next.js Developer</strong></div>
+    <div class="subtitle"><strong>Lawpath Engineering - Full Stack Engineer</strong></div>
     
     <h2>Executive Summary</h2>
     <p>You are being assessed for the Engineer position at Lawpath. This is a two-part assessment: a technical implementation challenge followed by a presentation. The assessment evaluates your ability to build modern web applications using Next.js, integrate with external APIs through GraphQL, implement proper data persistence and logging, and communicate technical decisions effectively.</p>
@@ -259,9 +259,12 @@
                 </ul>
             </li>
             <li>For the <strong>Source tab</strong>, we should be able to filter out locations based on their categories.</li>
-            <li>For the <strong>Source tab</strong>, when a location is selected/clicked from the list of results, display
-                the pinpointed selected location on Google maps.</li>
-            <li>For the <strong>Verifier tab</strong>, display the pinpointed location of the input on Google maps.</li>
+            <li>Display locations on Google Maps:
+                <ul>
+                    <li>For the <strong>Source tab</strong>: Show pinpointed location when selected from results</li>
+                    <li>For the <strong>Verifier tab</strong>: Show pinpointed location based on input</li>
+                </ul>
+            </li>
             <li>Store inputs and results from both the <strong>Verifier</strong> and <strong>Source tab</strong> into <strong>Elasticsearch</strong> for
                 logging.
                 <ul>
@@ -303,10 +306,10 @@
                 inputs/results from the Source tab (as per requirement 8) are stored in Elasticsearch.</p>
         </div>
         
-        <h2>Presentation Component</h2>
+        <h2>Presentation Component (60% of Assessment)</h2>
         <div class="warning">
             <h3>Architecture Decisions - Scaling from MVP to Production</h3>
-            <p><strong>Duration:</strong> 20 minutes | <strong>Weight:</strong> 60% of total assessment</p>
+            <p><strong>Duration:</strong> 20 minutes</p>
             
             <p><strong>Overview:</strong> Present your technical solution to the Lawpath address validation application, focusing on architectural decisions and production readiness. This presentation should demonstrate your ability to think beyond implementation to real-world application challenges.</p>
         </div>
@@ -331,18 +334,10 @@
         
         <h4>3. Operational Excellence (4-6 minutes)</h4>
         <ul>
-            <li>Monitoring and observability you'd add</li>
             <li>Error handling strategies and user experience decisions</li>
             <li>Testing approach for the integration points</li>
             <li>Deployment and maintenance considerations</li>
         </ul>
-        
-        <h3>Presentation Evaluation Criteria</h3>
-        <p><span class="arrow">➔</span> <strong>Technical Depth:</strong> Understanding of architectural implications</p>
-        <p><span class="arrow">➔</span> <strong>Problem-Solving:</strong> Ability to identify and address complex challenges</p>
-        <p><span class="arrow">➔</span> <strong>Communication:</strong> Clear explanation of technical concepts</p>
-        <p><span class="arrow">➔</span> <strong>Strategic Thinking:</strong> Vision for scaling beyond the MVP</p>
-        <p><span class="arrow">➔</span> <strong>Self-Awareness:</strong> Honest assessment of current limitations and improvements</p>
         
         <h3>Presentation Deliverables</h3>
         <ul>
@@ -351,13 +346,24 @@
             <li>Q&A session following presentation</li>
         </ul>
         
-        <h2>Submission Instructions</h2>
-        <ol>
-            <li><strong>Code Repository:</strong> Commit your project to a GitHub repository.</li>
-            <li><strong>Documentation:</strong> The README of your repository should contain comprehensive instructions for
-                initializing and running the project on a local machine.</li>
-            <li><strong>Presentation:</strong> Prepare a 20-minute presentation as outlined above.</li>
-        </ol>
+        <h2>Submission Requirements</h2>
+        <div class="success-criteria">
+            <p><strong>Required Deliverables (Due 1 week from receipt):</strong></p>
+            <p>✓ <strong>Working Next.js application</strong> with both Verifier and Source tabs</p>
+            <p>✓ <strong>GitHub repository</strong> with your complete project code</p>
+            <p>✓ <strong>Deployed solution on Vercel</strong> with live URL</p>
+            <p>✓ <strong>Comprehensive README</strong> containing:</p>
+            <ul style="margin-left: 20px;">
+                <li>Instructions for local setup and running</li>
+                <li>Deployed Vercel URL</li>
+                <li>Any environment variables or configuration needed</li>
+            </ul>
+            <p>✓ <strong>GraphQL proxy implementation</strong> for Australia Post API</p>
+            <p>✓ <strong>Elasticsearch integration</strong> for logging</p>
+            <p>✓ <strong>Google Maps integration</strong> for location visualization</p>
+            <p>✓ <strong>State persistence</strong> across browser sessions</p>
+            <p>✓ <strong>Presentation ready</strong> with slides and code examples for demonstration</p>
+        </div>
         
         <h2>Overall Evaluation Criteria</h2>
         
@@ -372,7 +378,11 @@
         <p><span class="arrow">➔</span> Ability to work with Elasticsearch for search and data storage.</p>
         
         <h3>Presentation & Architecture (60%)</h3>
-        <p>See Presentation Component section above for detailed evaluation criteria.</p>
+        <p><span class="arrow">➔</span> Technical Depth: Understanding of architectural implications</p>
+        <p><span class="arrow">➔</span> Problem-Solving: Ability to identify and address complex challenges</p>
+        <p><span class="arrow">➔</span> Communication: Clear explanation of technical concepts</p>
+        <p><span class="arrow">➔</span> Strategic Thinking: Vision for scaling beyond the MVP</p>
+        <p><span class="arrow">➔</span> Self-Awareness: Honest assessment of current limitations and improvements</p>
         
         <h2>Appendix A (Details of the API)</h2>
         <div class="key-outcome">
@@ -573,19 +583,6 @@ console.log(updateMappingResponse);</code></pre>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        
-        <div class="success-criteria">
-            <p><strong>Submission Deadline:</strong> 1 week from receipt</p>
-            <p><strong>Final Submission Checklist:</strong></p>
-            <p>✓ Working Next.js application with both Verifier and Source tabs</p>
-            <p>✓ GraphQL proxy implementation for Australia Post API</p>
-            <p>✓ Elasticsearch integration for logging</p>
-            <p>✓ Google Maps integration</p>
-            <p>✓ State persistence across sessions</p>
-            <p>✓ GitHub repository with comprehensive README</p>
-            <p>✓ 20-minute presentation prepared with slides</p>
-            <p>✓ Code examples ready for demonstration</p>
         </div>
         
         <div class="footer">
