@@ -205,7 +205,7 @@
     <div class="subtitle"><strong>Lawpath Engineering - Full Stack Engineer</strong></div>
     
     <h2>Executive Summary</h2>
-    <p>You are being assessed for the Engineer position at Lawpath. This is a two-part assessment: a technical implementation challenge followed by a presentation. The assessment evaluates your ability to build modern web applications using Next.js with secure authentication, integrate with external APIs through GraphQL, implement proper data persistence and logging with Elasticsearch, and communicate technical decisions effectively.</p>
+    <p>You are being assessed for the Engineer position at Lawpath. This is a two-part assessment: a technical implementation challenge followed by a presentation. The assessment evaluates your ability to build modern web applications using Next.js with secure authentication, integrate with external APIs through GraphQL, implement proper data persistence and log-in with Elasticsearch, and communicate technical decisions effectively.</p>
     
     <div class="key-outcome">
         <strong>Key Outcome:</strong> Demonstrate you can build a production-ready Next.js application with secure authentication, address verification through API integration, data persistence with Elasticsearch, and then present your architectural decisions and scaling strategies.
@@ -222,7 +222,7 @@
 
     <h2>Description</h2>
         <p>
-            Create a single-page application using only Next.js with authentication and a <strong>Verifier</strong> form.
+            Create an application using only Next.js with authentication and a <strong>Verifier</strong> form.
         </p>
         <ul>
             <li>The application should require <strong>user authentication</strong> before accessing the Verifier form.
@@ -253,24 +253,27 @@
                 the Australia Post API <strong>(See Appendix A)</strong> through a GraphQL proxy.</li>
             <li>Implement state persistence so that if a user closes the browser and returns later, 
                 the form data is restored.</li>
-            <li>Store all verification attempts into <strong>Elasticsearch</strong> for
-                logging, including:
+            <li><strong>Nice to have (Bonus):</strong>
                 <ul>
-                    <li>User ID or username of the logged-in user</li>
-                    <li>Input data (postcode, suburb, state)</li>
-                    <li>Timestamp of the attempt</li>
-                    <li>Validation result (success/failure)</li>
-                    <li>Error message if validation failed</li>
+                    <li>Store all verification attempts into <strong>Elasticsearch</strong> for log-in, including:
+                        <ul>
+                            <li>User ID or username of the logged-in user</li>
+                            <li>Input data (postcode, suburb, state)</li>
+                            <li>Timestamp of the attempt</li>
+                            <li>Validation result (success/failure)</li>
+                            <li>Error message if validation failed</li>
+                        </ul>
+                    </li>
+                    <li>Google Maps integration - display the location on a map when validation is successful.</li>
                 </ul>
             </li>
-            <li><strong>Nice to have (Bonus):</strong> Google Maps integration - display the location on a map when validation is successful.</li>
         </ol>
         
         <h2>Tests to Pass</h2>
         <div class="warning">
             <p><strong>A. Authentication - Demonstrate understanding of secure auth practices</strong></p>
             <ul>
-                <li>Users cannot access the Verifier form without logging in (protected routes)</li>
+                <li>Users cannot access the Verifier form without log-in in (protected routes)</li>
                 <li>Passwords are properly hashed (not stored in plain text)</li>
                 <li>Successful login redirects to the main application with proper session creation</li>
                 <li>User session persists across page refreshes (token/session management)</li>
@@ -295,41 +298,42 @@
             <p><strong>D.</strong> Upon reloading the page, the user should remain logged in (if previously logged in),
                 and the form data should be restored.</p>
             
-            <p><strong>E.</strong> Ensure that all verification attempts are stored in Elasticsearch
-                with the user ID for logging purposes.</p>
+            <p><strong>E.</strong> <strong>(Bonus):</strong> Ensure that all verification attempts are stored in Elasticsearch
+                with the user ID for log-in purposes.</p>
         </div>
         
         <h2>Presentation Component (60% of Assessment)</h2>
         <div class="warning">
-            <h3>Architecture Decisions - Scaling from MVP to Production</h3>
-            <p><strong>Duration:</strong> 20 minutes</p>
+            <h3>eg. Architecture Decisions - Scaling from MVP to Production</h3>
+            <p><strong>Duration:</strong> 10 minutes</p>
             
-            <p><strong>Overview:</strong> Present your technical solution to the Lawpath address validation application, focusing on architectural decisions and production readiness. This presentation should demonstrate your ability to think beyond implementation to real-world application challenges.</p>
+            <p><strong>Overview:</strong> Walk us through your journey building the Lawpath address validation application. We're not looking for library definitions or feature lists - we know what Next.js and GraphQL do. Instead, share your story: the problems you encountered, how you solved them, and what you learned along the way. Focus on your thinking process, not the tools themselves.</p>
         </div>
         
         <h3>Presentation Guidelines</h3>
-        
-        <h4>1. Technical Decision Deep-Dive (6-8 minutes)</h4>
+
+        <h4>1. Your Design Journey & Decision-Making Process</h4>
         <ul>
-            <li>Walk through 3-5 key architectural decisions you made</li>
-            <li>Alternative approaches you considered and why you rejected them</li>
-            <li>Trade-offs between different implementation strategies</li>
-            <li>Most challenging technical problem and your solution approach</li>
+            <li>Start with your initial approach - what was your first instinct and why did it evolve?</li>
+            <li>Walk us through 2-3 pivotal moments where you changed direction - what triggered these changes?</li>
+            <li>Share a decision you struggled with - how did you ultimately resolve it?</li>
+            <li>What assumptions did you make early on that proved wrong? How did you adapt?</li>
         </ul>
-        
-        <h4>2. Production Scaling Strategy (6-8 minutes)</h4>
+
+        <h4>2. Problem-Solving in Action</h4>
         <ul>
-            <li>Performance bottlenecks you identified and optimisation strategies</li>
-            <li>What you'd implement differently with more time/budget</li>
-            <li>Technical challenges that weren't obvious from the initial brief</li>
-            <li>Security considerations for a production environment</li>
+            <li>Tell us about your most challenging bug or integration issue - take us through your debugging process</li>
+            <li>Describe a moment where the obvious solution didn't work - what was your Plan B?</li>
+            <li>Share something that took longer than expected - what made it complex and how did you break through?</li>
+            <li>What "aha moment" or key insight unlocked your solution?</li>
         </ul>
-        
-        <h4>3. Operational Excellence (4-6 minutes)</h4>
+
+        <h4>3. Reflection & Learning</h4>
         <ul>
-            <li>Error handling strategies and user experience decisions</li>
-            <li>Testing approach for the integration points</li>
-            <li>Deployment and maintenance considerations</li>
+            <li>What would you do completely differently if starting over today? Why didn't you see this initially?</li>
+            <li>What trade-off are you least satisfied with? How would you improve it given more time?</li>
+            <li>What did this challenge teach you about your own problem-solving approach?</li>
+            <li>If you had to explain your solution to a junior developer, what would be the hardest concept to convey and why?</li>
         </ul>
         
         <h3>Presentation Deliverables</h3>
@@ -342,42 +346,66 @@
         <h2>Submission Requirements</h2>
         <div class="success-criteria">
             <p><strong>Required Deliverables (Due 1 week from receipt):</strong></p>
-            <p>✓ <strong>Working Next.js application</strong> with authentication and Verifier functionality</p>
-            <p>✓ <strong>Authentication system</strong> demonstrating secure auth implementation (password hashing, session management, protected routes)</p>
-            <p>✓ <strong>GitHub repository</strong> with your complete project code</p>
-            <p>✓ <strong>Deployed solution on Vercel</strong> with live URL</p>
-            <p>✓ <strong>Comprehensive README</strong> containing:</p>
+
+            <h4 style="color: #16987C; margin-top: 15px;">1. Working Application</h4>
+            <p>✓ <strong>Fully functional Next.js application</strong> </p>
+            <p>✓ <strong>Authentication system</strong> with:</p>
             <ul style="margin-left: 20px;">
-                <li>Instructions for local setup and running</li>
-                <li>Deployed Vercel URL</li>
-                <li>Any environment variables or configuration needed</li>
+                <li>User registration and login functionality</li>
+                <li>Protected routes that redirect to login when unauthorized</li>
             </ul>
-            <p>✓ <strong>GraphQL proxy implementation</strong> for Australia Post API</p>
-            <p>✓ <strong>Elasticsearch integration</strong> for logging</p>
-            <p>✓ <strong>Google Maps integration</strong> for location visualisation (bonus feature)</p>
-            <p>✓ <strong>State persistence</strong> across browser sessions</p>
-            <p>✓ <strong>Presentation ready</strong> with slides and code examples for demonstration</p>
+            <p>✓ <strong>Address Verification form</strong> with:</p>
+            <ul style="margin-left: 20px;">
+                <li>Clear success/error messages</li>
+                <li>Form state persistence across sessions</li>
+            </ul>
+
+            <h4 style="color: #16987C; margin-top: 15px;">2. Technical Implementation</h4>
+            <p>✓ <strong>GraphQL proxy server</strong> that wraps the Australia Post REST API</p>
+            <p>✓ <strong>Apollo Client integration</strong> (or equivalent) for GraphQL queries</p>
+
+            <h4 style="color: #16987C; margin-top: 15px;">3. Code Repository</h4>
+            <p>✓ <strong>Comprehensive README.md</strong> including:</p>
+            <ul style="margin-left: 20px;">
+                <li>Installation steps</li>
+                <li>Environment variable setup guide</li>
+            </ul>
+
+            <h4 style="color: #16987C; margin-top: 15px;">4. Bonus Implementations (Optional)</h4>
+            <p>✓ <strong>Elasticsearch integration:</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>User storage in Elasticsearch </li>
+                <li>Verification attempt logging with full audit trail</li>
+            </ul>
+            <p>✓ <strong>Google Maps integration:</strong></p>
+
+            <h4 style="color: #16987C; margin-top: 15px;">5. Presentation Materials</h4>
+            <p>✓ <strong>Slide deck</strong> prepared for 10-minute presentation</p>
+            <p>✓ <strong>Code examples</strong> ready to demonstrate key implementations</p>
+            <p>✓ <strong>Demo scenario</strong> planned to showcase all features</p>
+
         </div>
         
         <h2>Overall Evaluation Criteria</h2>
-        
+
         <h3>Technical Implementation (40%)</h3>
-        <p><span class="arrow">➔</span> Proficiency in developing applications using Next.js and React.</p>
-        <p><span class="arrow">➔</span> Ability to work with a GraphQL endpoint, particularly in proxying external REST APIs.</p>
-        <p><span class="arrow">➔</span> Skill in constructing user-centric web forms.</p>
-        <p><span class="arrow">➔</span> Expertise in HTML5/CSS(or an equivalent framework like Tailwind)/Typescript.</p>
-        <p><span class="arrow">➔</span> Ability to manage state persistence across sessions.</p>
-        <p><span class="arrow">➔</span> Attention to user experience and feedback handling.</p>
-        <p><span class="arrow">➔</span> Familiarity with Git and its best practices.</p>
-        <p><span class="arrow">➔</span> Ability to work with Elasticsearch for search and data storage.</p>
-        <p><span class="arrow">➔</span> Understanding of authentication best practices (password security, session management, route protection).</p>
-        
+        <p><span class="arrow">➔</span> <strong>Code Quality:</strong> Clean, maintainable, and well-structured code following Next.js best practices</p>
+        <p><span class="arrow">➔</span> <strong>Authentication Implementation:</strong> Secure user auth with proper password hashing, session management, and protected routes</p>
+        <p><span class="arrow">➔</span> <strong>API Integration:</strong> Successful GraphQL proxy implementation for Australia Post API with proper error handling</p>
+        <p><span class="arrow">➔</span> <strong>Form Validation:</strong> Robust validation logic with clear user feedback for all edge cases</p>
+        <p><span class="arrow">➔</span> <strong>State Management:</strong> Effective state persistence across browser sessions</p>
+        <p><span class="arrow">➔</span> <strong>User Experience:</strong> Intuitive interface with appropriate loading states and error messages</p>
+        <p><span class="arrow">➔</span> <strong>Testing Approach:</strong> Evidence of testing methodology (unit tests, integration tests, or manual testing documentation)</p>
+        <p><span class="arrow">➔</span> <strong>Bonus Implementation:</strong> Elasticsearch logging and Google Maps integration (if attempted)</p>
+
         <h3>Presentation & Architecture (60%)</h3>
-        <p><span class="arrow">➔</span> Technical Depth: Understanding of architectural implications</p>
-        <p><span class="arrow">➔</span> Problem-Solving: Ability to identify and address complex challenges</p>
-        <p><span class="arrow">➔</span> Communication: Clear explanation of technical concepts</p>
-        <p><span class="arrow">➔</span> Strategic Thinking: Vision for scaling beyond the MVP</p>
-        <p><span class="arrow">➔</span> Self-Awareness: Honest assessment of current limitations and improvements</p>
+        <p><span class="arrow">➔</span> <strong>Problem-Solving Narrative:</strong> Clear articulation of challenges faced and solutions implemented</p>
+        <p><span class="arrow">➔</span> <strong>Decision Rationale:</strong> Justification for architectural and technical choices made</p>
+        <p><span class="arrow">➔</span> <strong>Learning Demonstration:</strong> Evidence of growth and adaptation throughout the project</p>
+        <p><span class="arrow">➔</span> <strong>Scaling Strategy:</strong> Thoughtful approach to evolving from MVP to production-ready application</p>
+        <p><span class="arrow">➔</span> <strong>Trade-off Analysis:</strong> Understanding of compromises made and their implications</p>
+        <p><span class="arrow">➔</span> <strong>Communication Skills:</strong> Ability to explain complex technical concepts clearly to varied audiences</p>
+        <p><span class="arrow">➔</span> <strong>Self-Reflection:</strong> Honest assessment of strengths, weaknesses, and areas for improvement</p>
         
         <h2>Appendix A (Details of the API)</h2>
         <div class="key-outcome">
@@ -475,7 +503,6 @@
                 <p><strong>Important:</strong> Create your own indices using the format: <code>&lt;firstname&gt;-&lt;lastname&gt;-index</code></p>
                 <p>For example, if your name is John Smith:</p>
                 <ul>
-                    <li>Logs index: <code>john-smith-logs</code></li>
                     <li>Users index (if using Elasticsearch for auth): <code>john-smith-users</code></li>
                 </ul>
             </div>
@@ -587,6 +614,7 @@ console.log(updateMappingResponse);</code></pre>
         <div class="footer">
             <p><strong>Good luck. Show us your ability to build modern, scalable web applications and communicate technical decisions effectively.</strong></p>
             <p><em>Lawpath Engineering Team</em></p>
+            <p style="font-size: 0.85em; color: #8293BA; margin-top: 15px;">Last updated: September 25, 2025</p>
         </div>
     </div>
 </body>
